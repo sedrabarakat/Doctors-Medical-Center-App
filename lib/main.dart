@@ -1,22 +1,12 @@
+import 'package:bloc/bloc.dart';
+import 'package:doctor_app/core/cubit/bloc_observer.dart';
+import 'package:doctor_app/core/domain/services/locator.dart';
+import 'package:doctor_app/src/app.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  await locatorSetUp();
+  runApp(const DoctorApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Doctor App',
-      home: Scaffold(
-        body: Center(child: Text("Welecome to our doctor app..GO GETTER")),
-      )
-    );
-  }
-}
-
-
