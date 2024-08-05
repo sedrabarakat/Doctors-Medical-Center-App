@@ -9,17 +9,19 @@ part of 'base_model.dart';
 BaseModel<T> _$BaseModelFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
-) =>
-    BaseModel<T>(
-      data: _$nullableGenericFromJson(json['data'], fromJsonT),
-      meta: json['meta'] == null
-          ? null
-          : MetaList.fromJson(json['meta'] as Map<String, dynamic>),
-      links: json['links'] == null
-          ? null
-          : LinksList.fromJson(json['links'] as Map<String, dynamic>),
-      message: json['message'] as String? ?? '',
-    );
+) {
+  return BaseModel<T>(
+    data: _$nullableGenericFromJson(
+        BaseModel.readDataValue(json, 'data'), fromJsonT),
+    meta: json['meta'] == null
+        ? null
+        : MetaList.fromJson(json['meta'] as Map<String, dynamic>),
+    links: json['links'] == null
+        ? null
+        : LinksList.fromJson(json['links'] as Map<String, dynamic>),
+    message: json['message'] as String? ?? '',
+  );
+}
 
 Map<String, dynamic> _$BaseModelToJson<T>(
   BaseModel<T> instance,

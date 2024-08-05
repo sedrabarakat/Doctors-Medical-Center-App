@@ -37,6 +37,7 @@ mixin _$NetworkExceptions {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +61,7 @@ mixin _$NetworkExceptions {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +85,7 @@ mixin _$NetworkExceptions {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +110,7 @@ mixin _$NetworkExceptions {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -130,6 +134,7 @@ mixin _$NetworkExceptions {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -153,6 +158,7 @@ mixin _$NetworkExceptions {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -242,6 +248,7 @@ class _$RequestCancelledImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return requestCancelled();
   }
@@ -268,6 +275,7 @@ class _$RequestCancelledImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return requestCancelled?.call();
   }
@@ -294,6 +302,7 @@ class _$RequestCancelledImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (requestCancelled != null) {
@@ -324,6 +333,7 @@ class _$RequestCancelledImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return requestCancelled(this);
   }
@@ -350,6 +360,7 @@ class _$RequestCancelledImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return requestCancelled?.call(this);
   }
@@ -376,6 +387,7 @@ class _$RequestCancelledImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (requestCancelled != null) {
@@ -484,6 +496,7 @@ class _$UnauthorizedRequestImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return unauthorizedRequest(reason);
   }
@@ -510,6 +523,7 @@ class _$UnauthorizedRequestImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return unauthorizedRequest?.call(reason);
   }
@@ -536,6 +550,7 @@ class _$UnauthorizedRequestImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (unauthorizedRequest != null) {
@@ -566,6 +581,7 @@ class _$UnauthorizedRequestImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return unauthorizedRequest(this);
   }
@@ -592,6 +608,7 @@ class _$UnauthorizedRequestImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return unauthorizedRequest?.call(this);
   }
@@ -618,6 +635,7 @@ class _$UnauthorizedRequestImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (unauthorizedRequest != null) {
@@ -703,6 +721,7 @@ class _$LoggingInRequiredImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return loggingInRequired();
   }
@@ -729,6 +748,7 @@ class _$LoggingInRequiredImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return loggingInRequired?.call();
   }
@@ -755,6 +775,7 @@ class _$LoggingInRequiredImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (loggingInRequired != null) {
@@ -785,6 +806,7 @@ class _$LoggingInRequiredImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return loggingInRequired(this);
   }
@@ -811,6 +833,7 @@ class _$LoggingInRequiredImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return loggingInRequired?.call(this);
   }
@@ -837,6 +860,7 @@ class _$LoggingInRequiredImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (loggingInRequired != null) {
@@ -913,6 +937,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return badRequest();
   }
@@ -939,6 +964,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return badRequest?.call();
   }
@@ -965,6 +991,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (badRequest != null) {
@@ -995,6 +1022,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return badRequest(this);
   }
@@ -1021,6 +1049,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return badRequest?.call(this);
   }
@@ -1047,6 +1076,7 @@ class _$BadRequestImpl with DiagnosticableTreeMixin implements BadRequest {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (badRequest != null) {
@@ -1151,6 +1181,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return notFound(reason);
   }
@@ -1177,6 +1208,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return notFound?.call(reason);
   }
@@ -1203,6 +1235,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -1233,6 +1266,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return notFound(this);
   }
@@ -1259,6 +1293,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return notFound?.call(this);
   }
@@ -1285,6 +1320,7 @@ class _$NotFoundImpl with DiagnosticableTreeMixin implements NotFound {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (notFound != null) {
@@ -1369,6 +1405,7 @@ class _$MethodNotAllowedImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return methodNotAllowed();
   }
@@ -1395,6 +1432,7 @@ class _$MethodNotAllowedImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return methodNotAllowed?.call();
   }
@@ -1421,6 +1459,7 @@ class _$MethodNotAllowedImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (methodNotAllowed != null) {
@@ -1451,6 +1490,7 @@ class _$MethodNotAllowedImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return methodNotAllowed(this);
   }
@@ -1477,6 +1517,7 @@ class _$MethodNotAllowedImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return methodNotAllowed?.call(this);
   }
@@ -1503,6 +1544,7 @@ class _$MethodNotAllowedImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (methodNotAllowed != null) {
@@ -1582,6 +1624,7 @@ class _$NotAcceptableImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return notAcceptable();
   }
@@ -1608,6 +1651,7 @@ class _$NotAcceptableImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return notAcceptable?.call();
   }
@@ -1634,6 +1678,7 @@ class _$NotAcceptableImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (notAcceptable != null) {
@@ -1664,6 +1709,7 @@ class _$NotAcceptableImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return notAcceptable(this);
   }
@@ -1690,6 +1736,7 @@ class _$NotAcceptableImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return notAcceptable?.call(this);
   }
@@ -1716,6 +1763,7 @@ class _$NotAcceptableImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (notAcceptable != null) {
@@ -1795,6 +1843,7 @@ class _$RequestTimeoutImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return requestTimeout();
   }
@@ -1821,6 +1870,7 @@ class _$RequestTimeoutImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return requestTimeout?.call();
   }
@@ -1847,6 +1897,7 @@ class _$RequestTimeoutImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (requestTimeout != null) {
@@ -1877,6 +1928,7 @@ class _$RequestTimeoutImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return requestTimeout(this);
   }
@@ -1903,6 +1955,7 @@ class _$RequestTimeoutImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return requestTimeout?.call(this);
   }
@@ -1929,6 +1982,7 @@ class _$RequestTimeoutImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (requestTimeout != null) {
@@ -2006,6 +2060,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return sendTimeout();
   }
@@ -2032,6 +2087,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return sendTimeout?.call();
   }
@@ -2058,6 +2114,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (sendTimeout != null) {
@@ -2088,6 +2145,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return sendTimeout(this);
   }
@@ -2114,6 +2172,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return sendTimeout?.call(this);
   }
@@ -2140,6 +2199,7 @@ class _$SendTimeoutImpl with DiagnosticableTreeMixin implements SendTimeout {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (sendTimeout != null) {
@@ -2248,6 +2308,7 @@ class _$UnprocessableEntityImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return unprocessableEntity(reason);
   }
@@ -2274,6 +2335,7 @@ class _$UnprocessableEntityImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return unprocessableEntity?.call(reason);
   }
@@ -2300,6 +2362,7 @@ class _$UnprocessableEntityImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (unprocessableEntity != null) {
@@ -2330,6 +2393,7 @@ class _$UnprocessableEntityImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return unprocessableEntity(this);
   }
@@ -2356,6 +2420,7 @@ class _$UnprocessableEntityImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return unprocessableEntity?.call(this);
   }
@@ -2382,6 +2447,7 @@ class _$UnprocessableEntityImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (unprocessableEntity != null) {
@@ -2464,6 +2530,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return conflict();
   }
@@ -2490,6 +2557,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return conflict?.call();
   }
@@ -2516,6 +2584,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (conflict != null) {
@@ -2546,6 +2615,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return conflict(this);
   }
@@ -2572,6 +2642,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return conflict?.call(this);
   }
@@ -2598,6 +2669,7 @@ class _$ConflictImpl with DiagnosticableTreeMixin implements Conflict {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (conflict != null) {
@@ -2678,6 +2750,7 @@ class _$InternalServerErrorImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return internalServerError();
   }
@@ -2704,6 +2777,7 @@ class _$InternalServerErrorImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return internalServerError?.call();
   }
@@ -2730,6 +2804,7 @@ class _$InternalServerErrorImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (internalServerError != null) {
@@ -2760,6 +2835,7 @@ class _$InternalServerErrorImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return internalServerError(this);
   }
@@ -2786,6 +2862,7 @@ class _$InternalServerErrorImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return internalServerError?.call(this);
   }
@@ -2812,6 +2889,7 @@ class _$InternalServerErrorImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (internalServerError != null) {
@@ -2891,6 +2969,7 @@ class _$NotImplementedImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return notImplemented();
   }
@@ -2917,6 +2996,7 @@ class _$NotImplementedImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return notImplemented?.call();
   }
@@ -2943,6 +3023,7 @@ class _$NotImplementedImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (notImplemented != null) {
@@ -2973,6 +3054,7 @@ class _$NotImplementedImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return notImplemented(this);
   }
@@ -2999,6 +3081,7 @@ class _$NotImplementedImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return notImplemented?.call(this);
   }
@@ -3025,6 +3108,7 @@ class _$NotImplementedImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (notImplemented != null) {
@@ -3104,6 +3188,7 @@ class _$ServiceUnavailableImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return serviceUnavailable();
   }
@@ -3130,6 +3215,7 @@ class _$ServiceUnavailableImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return serviceUnavailable?.call();
   }
@@ -3156,6 +3242,7 @@ class _$ServiceUnavailableImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (serviceUnavailable != null) {
@@ -3186,6 +3273,7 @@ class _$ServiceUnavailableImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return serviceUnavailable(this);
   }
@@ -3212,6 +3300,7 @@ class _$ServiceUnavailableImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return serviceUnavailable?.call(this);
   }
@@ -3238,6 +3327,7 @@ class _$ServiceUnavailableImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (serviceUnavailable != null) {
@@ -3318,6 +3408,7 @@ class _$NoInternetConnectionImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return noInternetConnection();
   }
@@ -3344,6 +3435,7 @@ class _$NoInternetConnectionImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return noInternetConnection?.call();
   }
@@ -3370,6 +3462,7 @@ class _$NoInternetConnectionImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (noInternetConnection != null) {
@@ -3400,6 +3493,7 @@ class _$NoInternetConnectionImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return noInternetConnection(this);
   }
@@ -3426,6 +3520,7 @@ class _$NoInternetConnectionImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return noInternetConnection?.call(this);
   }
@@ -3452,6 +3547,7 @@ class _$NoInternetConnectionImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (noInternetConnection != null) {
@@ -3531,6 +3627,7 @@ class _$FormatExceptionImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return formatException();
   }
@@ -3557,6 +3654,7 @@ class _$FormatExceptionImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return formatException?.call();
   }
@@ -3583,6 +3681,7 @@ class _$FormatExceptionImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (formatException != null) {
@@ -3613,6 +3712,7 @@ class _$FormatExceptionImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return formatException(this);
   }
@@ -3639,6 +3739,7 @@ class _$FormatExceptionImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return formatException?.call(this);
   }
@@ -3665,6 +3766,7 @@ class _$FormatExceptionImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (formatException != null) {
@@ -3744,6 +3846,7 @@ class _$UnableToProcessImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return unableToProcess();
   }
@@ -3770,6 +3873,7 @@ class _$UnableToProcessImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return unableToProcess?.call();
   }
@@ -3796,6 +3900,7 @@ class _$UnableToProcessImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (unableToProcess != null) {
@@ -3826,6 +3931,7 @@ class _$UnableToProcessImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return unableToProcess(this);
   }
@@ -3852,6 +3958,7 @@ class _$UnableToProcessImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return unableToProcess?.call(this);
   }
@@ -3878,6 +3985,7 @@ class _$UnableToProcessImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (unableToProcess != null) {
@@ -3982,6 +4090,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return defaultError(error);
   }
@@ -4008,6 +4117,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return defaultError?.call(error);
   }
@@ -4034,6 +4144,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (defaultError != null) {
@@ -4064,6 +4175,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return defaultError(this);
   }
@@ -4090,6 +4202,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return defaultError?.call(this);
   }
@@ -4116,6 +4229,7 @@ class _$DefaultErrorImpl with DiagnosticableTreeMixin implements DefaultError {
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (defaultError != null) {
@@ -4200,6 +4314,7 @@ class _$UnexpectedErrorImpl
     required TResult Function() unableToProcess,
     required TResult Function(String error) defaultError,
     required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
   }) {
     return unexpectedError();
   }
@@ -4226,6 +4341,7 @@ class _$UnexpectedErrorImpl
     TResult? Function()? unableToProcess,
     TResult? Function(String error)? defaultError,
     TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
   }) {
     return unexpectedError?.call();
   }
@@ -4252,6 +4368,7 @@ class _$UnexpectedErrorImpl
     TResult Function()? unableToProcess,
     TResult Function(String error)? defaultError,
     TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
     required TResult orElse(),
   }) {
     if (unexpectedError != null) {
@@ -4282,6 +4399,7 @@ class _$UnexpectedErrorImpl
     required TResult Function(UnableToProcess value) unableToProcess,
     required TResult Function(DefaultError value) defaultError,
     required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
   }) {
     return unexpectedError(this);
   }
@@ -4308,6 +4426,7 @@ class _$UnexpectedErrorImpl
     TResult? Function(UnableToProcess value)? unableToProcess,
     TResult? Function(DefaultError value)? defaultError,
     TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
   }) {
     return unexpectedError?.call(this);
   }
@@ -4334,6 +4453,7 @@ class _$UnexpectedErrorImpl
     TResult Function(UnableToProcess value)? unableToProcess,
     TResult Function(DefaultError value)? defaultError,
     TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
     required TResult orElse(),
   }) {
     if (unexpectedError != null) {
@@ -4345,4 +4465,253 @@ class _$UnexpectedErrorImpl
 
 abstract class UnexpectedError implements NetworkExceptions {
   const factory UnexpectedError() = _$UnexpectedErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$InvalidCodeImplCopyWith<$Res> {
+  factory _$$InvalidCodeImplCopyWith(
+          _$InvalidCodeImpl value, $Res Function(_$InvalidCodeImpl) then) =
+      __$$InvalidCodeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$InvalidCodeImplCopyWithImpl<$Res>
+    extends _$NetworkExceptionsCopyWithImpl<$Res, _$InvalidCodeImpl>
+    implements _$$InvalidCodeImplCopyWith<$Res> {
+  __$$InvalidCodeImplCopyWithImpl(
+      _$InvalidCodeImpl _value, $Res Function(_$InvalidCodeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$InvalidCodeImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidCodeImpl with DiagnosticableTreeMixin implements InvalidCode {
+  const _$InvalidCodeImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'NetworkExceptions.invalidCode(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'NetworkExceptions.invalidCode'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidCodeImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidCodeImplCopyWith<_$InvalidCodeImpl> get copyWith =>
+      __$$InvalidCodeImplCopyWithImpl<_$InvalidCodeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() requestCancelled,
+    required TResult Function(String reason) unauthorizedRequest,
+    required TResult Function() loggingInRequired,
+    required TResult Function() badRequest,
+    required TResult Function(String reason) notFound,
+    required TResult Function() methodNotAllowed,
+    required TResult Function() notAcceptable,
+    required TResult Function() requestTimeout,
+    required TResult Function() sendTimeout,
+    required TResult Function(String reason) unprocessableEntity,
+    required TResult Function() conflict,
+    required TResult Function() internalServerError,
+    required TResult Function() notImplemented,
+    required TResult Function() serviceUnavailable,
+    required TResult Function() noInternetConnection,
+    required TResult Function() formatException,
+    required TResult Function() unableToProcess,
+    required TResult Function(String error) defaultError,
+    required TResult Function() unexpectedError,
+    required TResult Function(String message) invalidCode,
+  }) {
+    return invalidCode(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? requestCancelled,
+    TResult? Function(String reason)? unauthorizedRequest,
+    TResult? Function()? loggingInRequired,
+    TResult? Function()? badRequest,
+    TResult? Function(String reason)? notFound,
+    TResult? Function()? methodNotAllowed,
+    TResult? Function()? notAcceptable,
+    TResult? Function()? requestTimeout,
+    TResult? Function()? sendTimeout,
+    TResult? Function(String reason)? unprocessableEntity,
+    TResult? Function()? conflict,
+    TResult? Function()? internalServerError,
+    TResult? Function()? notImplemented,
+    TResult? Function()? serviceUnavailable,
+    TResult? Function()? noInternetConnection,
+    TResult? Function()? formatException,
+    TResult? Function()? unableToProcess,
+    TResult? Function(String error)? defaultError,
+    TResult? Function()? unexpectedError,
+    TResult? Function(String message)? invalidCode,
+  }) {
+    return invalidCode?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? requestCancelled,
+    TResult Function(String reason)? unauthorizedRequest,
+    TResult Function()? loggingInRequired,
+    TResult Function()? badRequest,
+    TResult Function(String reason)? notFound,
+    TResult Function()? methodNotAllowed,
+    TResult Function()? notAcceptable,
+    TResult Function()? requestTimeout,
+    TResult Function()? sendTimeout,
+    TResult Function(String reason)? unprocessableEntity,
+    TResult Function()? conflict,
+    TResult Function()? internalServerError,
+    TResult Function()? notImplemented,
+    TResult Function()? serviceUnavailable,
+    TResult Function()? noInternetConnection,
+    TResult Function()? formatException,
+    TResult Function()? unableToProcess,
+    TResult Function(String error)? defaultError,
+    TResult Function()? unexpectedError,
+    TResult Function(String message)? invalidCode,
+    required TResult orElse(),
+  }) {
+    if (invalidCode != null) {
+      return invalidCode(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RequestCancelled value) requestCancelled,
+    required TResult Function(UnauthorizedRequest value) unauthorizedRequest,
+    required TResult Function(LoggingInRequired value) loggingInRequired,
+    required TResult Function(BadRequest value) badRequest,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(MethodNotAllowed value) methodNotAllowed,
+    required TResult Function(NotAcceptable value) notAcceptable,
+    required TResult Function(RequestTimeout value) requestTimeout,
+    required TResult Function(SendTimeout value) sendTimeout,
+    required TResult Function(UnprocessableEntity value) unprocessableEntity,
+    required TResult Function(Conflict value) conflict,
+    required TResult Function(InternalServerError value) internalServerError,
+    required TResult Function(NotImplemented value) notImplemented,
+    required TResult Function(ServiceUnavailable value) serviceUnavailable,
+    required TResult Function(NoInternetConnection value) noInternetConnection,
+    required TResult Function(FormatException value) formatException,
+    required TResult Function(UnableToProcess value) unableToProcess,
+    required TResult Function(DefaultError value) defaultError,
+    required TResult Function(UnexpectedError value) unexpectedError,
+    required TResult Function(InvalidCode value) invalidCode,
+  }) {
+    return invalidCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RequestCancelled value)? requestCancelled,
+    TResult? Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult? Function(LoggingInRequired value)? loggingInRequired,
+    TResult? Function(BadRequest value)? badRequest,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(MethodNotAllowed value)? methodNotAllowed,
+    TResult? Function(NotAcceptable value)? notAcceptable,
+    TResult? Function(RequestTimeout value)? requestTimeout,
+    TResult? Function(SendTimeout value)? sendTimeout,
+    TResult? Function(UnprocessableEntity value)? unprocessableEntity,
+    TResult? Function(Conflict value)? conflict,
+    TResult? Function(InternalServerError value)? internalServerError,
+    TResult? Function(NotImplemented value)? notImplemented,
+    TResult? Function(ServiceUnavailable value)? serviceUnavailable,
+    TResult? Function(NoInternetConnection value)? noInternetConnection,
+    TResult? Function(FormatException value)? formatException,
+    TResult? Function(UnableToProcess value)? unableToProcess,
+    TResult? Function(DefaultError value)? defaultError,
+    TResult? Function(UnexpectedError value)? unexpectedError,
+    TResult? Function(InvalidCode value)? invalidCode,
+  }) {
+    return invalidCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RequestCancelled value)? requestCancelled,
+    TResult Function(UnauthorizedRequest value)? unauthorizedRequest,
+    TResult Function(LoggingInRequired value)? loggingInRequired,
+    TResult Function(BadRequest value)? badRequest,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(MethodNotAllowed value)? methodNotAllowed,
+    TResult Function(NotAcceptable value)? notAcceptable,
+    TResult Function(RequestTimeout value)? requestTimeout,
+    TResult Function(SendTimeout value)? sendTimeout,
+    TResult Function(UnprocessableEntity value)? unprocessableEntity,
+    TResult Function(Conflict value)? conflict,
+    TResult Function(InternalServerError value)? internalServerError,
+    TResult Function(NotImplemented value)? notImplemented,
+    TResult Function(ServiceUnavailable value)? serviceUnavailable,
+    TResult Function(NoInternetConnection value)? noInternetConnection,
+    TResult Function(FormatException value)? formatException,
+    TResult Function(UnableToProcess value)? unableToProcess,
+    TResult Function(DefaultError value)? defaultError,
+    TResult Function(UnexpectedError value)? unexpectedError,
+    TResult Function(InvalidCode value)? invalidCode,
+    required TResult orElse(),
+  }) {
+    if (invalidCode != null) {
+      return invalidCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidCode implements NetworkExceptions {
+  const factory InvalidCode(final String message) = _$InvalidCodeImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$InvalidCodeImplCopyWith<_$InvalidCodeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

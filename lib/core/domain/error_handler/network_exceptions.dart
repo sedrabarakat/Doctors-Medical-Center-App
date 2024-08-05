@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -48,6 +49,8 @@ abstract class NetworkExceptions with _$NetworkExceptions implements Exception {
 
   const factory NetworkExceptions.unexpectedError() = UnexpectedError;
 
+  const factory NetworkExceptions.invalidCode(String message) = InvalidCode;
+
   static List<NetworkExceptions> getAllNetworkExceptions() {
     return [
       const NetworkExceptions.badRequest(),
@@ -73,9 +76,15 @@ abstract class NetworkExceptions with _$NetworkExceptions implements Exception {
 
   static NetworkExceptions handleResponse(Response? response) {
     int statusCode = response?.statusCode ?? 0;
-
+    late final responseAsJson;
+    if (response != null) {
+      responseAsJson = response.data.toString().isEmpty
+          ? {}
+          : jsonDecode(response.data.toString());
+    }
     switch (statusCode) {
       case 400:
+        return NetworkExceptions.invalidCode(responseAsJson['error']);
       case 401:
         return const NetworkExceptions.unauthorizedRequest("");
       case 403:
@@ -163,6 +172,9 @@ abstract class NetworkExceptions with _$NetworkExceptions implements Exception {
     networkExceptions?.whenOrNull(
           notImplemented: () {
             errorMessage = "Not Implemented";
+          },
+          invalidCode: (error) {
+            errorMessage = error;
           },
           requestCancelled: () {
             errorMessage = "Request Cancelled";
