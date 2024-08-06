@@ -6,6 +6,7 @@ import 'package:doctor_app/core/widgets/custom_progress_state_button.dart';
 import 'package:doctor_app/core/widgets/custom_text_field.dart';
 import 'package:doctor_app/core/widgets/toast_bar.dart';
 import 'package:doctor_app/src/features/auth/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:doctor_app/src/features/auth/presentation/pages/widgets/text_label_text_button_widget.dart';
 import 'package:doctor_app/src/features/auth/presentation/pages/widgets/working_hour_widget.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
@@ -238,6 +239,16 @@ class SignUpScreen extends StatelessWidget {
                                   .signUpButtonState,
                               label: "Sign up",
                             );
+                          },
+                        ),
+                        const SizedBox(
+                          height: AppSize.size15,
+                        ),
+                        TextLabelTextButtonWidget(
+                          label: 'Already have an account ? ',
+                          textButtonLabel: 'Sign in',
+                          onPressed: () {
+                            context.pushReplacement(AppRouter.kLogin);
                           },
                         ),
                       ],

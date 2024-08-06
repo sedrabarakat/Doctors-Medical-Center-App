@@ -8,6 +8,7 @@ import 'package:doctor_app/core/widgets/custom_progress_state_button.dart';
 import 'package:doctor_app/core/widgets/custom_text_field.dart';
 import 'package:doctor_app/core/widgets/toast_bar.dart';
 import 'package:doctor_app/src/features/auth/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:doctor_app/src/features/auth/presentation/pages/widgets/text_label_text_button_widget.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -117,27 +118,13 @@ class LoginScreen extends StatelessWidget {
                                 },
                               ),
                               const Spacer(),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Don\'t have an account?',
-                                    style: StyleManager.fontRegular16,
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      context
-                                          .pushReplacement(AppRouter.kSignUp);
-                                    },
-                                    child: Text(
-                                      'Sign Up',
-                                      style: StyleManager.fontMedium16.copyWith(
-                                        color: ColorsHelper.primary,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
+                              TextLabelTextButtonWidget(
+                                label: 'Don\'t have an account?',
+                                textButtonLabel: 'Sign up',
+                                onPressed: () {
+                                  context.pushReplacement(AppRouter.kSignUp);
+                                },
+                              ),
                             ],
                           ),
                         )
