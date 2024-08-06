@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'user_model.g.dart';
+
 @JsonSerializable()
 class UserModel {
   final int id;
@@ -13,18 +14,18 @@ class UserModel {
   final String phoneNumber;
   @JsonKey(name: 'user_type')
   final String userType;
-  final String description;
+  String? description;
   String? image;
   @JsonKey(name: 'remember_token')
   String? rememberToken;
   UserModel({
-    required this.description,
     required this.id,
     required this.firstName,
     required this.middleName,
     required this.lastName,
     required this.phoneNumber,
     required this.userType,
+    this.description,
     this.image,
     this.rememberToken,
   });

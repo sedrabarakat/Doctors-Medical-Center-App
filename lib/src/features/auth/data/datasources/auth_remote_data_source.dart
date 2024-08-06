@@ -1,9 +1,14 @@
+import 'dart:typed_data';
+
+import 'package:dio/dio.dart';
 import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/domain/services/api_services.dart';
 import 'package:doctor_app/core/domain/urls/app_url.dart';
 import 'package:doctor_app/core/helper/dio_helper.dart';
 import 'package:doctor_app/core/interceptors/token_interceptor.dart';
+import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
+import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 
 class AuthRemoteDataSource {
   final ApiServices _apiServices;
@@ -27,5 +32,39 @@ class AuthRemoteDataSource {
     DioHelper().dio.interceptors.add(TokenInterceptor(response['token']));
 
     return BaseModel.fromJson(response, (json) => UserModel.fromJson(json));
+  }
+
+  //todo add the working_hours
+  Future<BaseModel<DoctorModel>> signUp({
+    required String firstName,
+    required String middleName,
+    required String lastName,
+    required String phoneNumber,
+    String? description,
+    Uint8List? image,
+    required String sectionId,
+    required String sessionDuration,
+    required String daysInAadvance,
+    required WorkingHourModel workingHour,
+  }) async {
+    final response = await _apiServices.post(AppUrl.signUp,
+        formData: FormData.fromMap(
+          {
+            'first_name': firstName,
+            "middle_name": middleName,
+            "last_name": lastName,
+            'phone_number': phoneNumber,
+            'password': '00000000',
+            'description': description,
+            'image': image != null
+                ? MultipartFile.fromBytes(image, filename: phoneNumber)
+                : null,
+            'section_id': sectionId,
+            'session_durtion': sessionDuration,
+            'days_in_advance': daysInAadvance,
+            'working_hours': workingHour.toJson(),
+          },
+        ));
+    return BaseModel.fromJson(response, (json) => DoctorModel.fromJson(json));
   }
 }

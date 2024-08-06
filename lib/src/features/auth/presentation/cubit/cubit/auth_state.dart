@@ -28,6 +28,18 @@ class VerifyCodeErrorState extends AuthState {
 
 class VerifyCodeLoadingState extends AuthState {}
 
+class SignUpLoadingState extends AuthState {}
+
+class SignUpSuccessState extends AuthState {
+  final DoctorModel doctor;
+  SignUpSuccessState(this.doctor);
+}
+
+class SignUpErrorState extends AuthState {
+  final NetworkExceptions error;
+  SignUpErrorState(this.error);
+}
+
 class FinishTimeState extends AuthState {}
 
 class EditTimeState extends AuthState {}

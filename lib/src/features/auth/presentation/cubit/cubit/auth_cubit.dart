@@ -1,10 +1,13 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/helper/image_helper.dart';
+import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
+import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 import 'package:doctor_app/src/features/auth/domain/repos/auth_repo.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:progress_state_button/progress_button.dart';
@@ -22,9 +25,11 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController sessionDurationController = TextEditingController();
   TextEditingController daysInAdvanceController = TextEditingController();
-  File? pickedProfileImage;
+  late WorkingHourModel workingHour;
+  Uint8List? pickedProfileImage;
   ButtonState loginButtonState = ButtonState.idle;
   ButtonState verifyButtonState = ButtonState.idle;
+  ButtonState signUpButtonState = ButtonState.idle;
   Map<String, dynamic> days = {
     "Sunday": <FromToController>[FromToController()],
     'Monday': <FromToController>[FromToController()],
@@ -69,6 +74,31 @@ class AuthCubit extends Cubit<AuthState> {
     });
   }
 
+  Future<void> signUp() async {
+    signUpButtonState = ButtonState.loading;
+    setUpWorkingHour();
+    emit(SignUpLoadingState());
+    final response = await _repo.signUp(
+      firstName: firstNameController.text,
+      middleName: middleNameController.text,
+      lastName: lastNameController.text,
+      phoneNumber: signUpPhoneNumberController.text,
+      sectionId: '1',
+      sessionDuration: sessionDurationController.text,
+      daysInAadvance: daysInAdvanceController.text,
+      image: pickedProfileImage,
+      description: descriptionController.text,
+      workingHour: workingHour,
+    );
+    response.fold((error) {
+      signUpButtonState = ButtonState.fail;
+      emit(SignUpErrorState(error));
+    }, (data) {
+      signUpButtonState = ButtonState.idle;
+      emit(SignUpSuccessState(data.data!));
+    });
+  }
+
   void addFromToWidget(String day) {
     final int lastIndex = days[day].length - 1;
 
@@ -83,14 +113,41 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> pickImage() async {
     try {
-      pickedProfileImage = await ImageHelper.pickImage(ImageSource.camera);
-      if (pickedProfileImage != null) {
+      final pickedImage = await ImageHelper.pickImage(ImageSource.camera);
+
+      if (pickedImage != null) {
+        pickedProfileImage = await pickedImage.readAsBytes();
+
         emit(PickImageState());
       }
     } catch (e) {
       // todo handle this error correctly
       print(e);
     }
+  }
+
+  void setUpWorkingHour() {
+    workingHour = WorkingHourModel(
+        friday: getWorkingHourForDay(days['Firday']),
+        monday: getWorkingHourForDay(days['Monday']),
+        saturday: getWorkingHourForDay(days['Saturday']),
+        sunday: getWorkingHourForDay(days['Sunday']),
+        thursday: getWorkingHourForDay(days['Thursday']),
+        tuesday: getWorkingHourForDay(days['Tuesday']),
+        wednesday: getWorkingHourForDay(days['Wednesday']));
+  }
+
+  List<String> getWorkingHourForDay(List<FromToController> day) {
+    List<String> workingHour = [];
+    for (int i = 0; i < day.length; i++) {
+      if (day[i].fromController.text.isNotEmpty &&
+          day[i].toController.text.isNotEmpty) {
+        String temp =
+            '${day[i].fromController.text}-${day[i].toController.text}';
+        workingHour.add(temp);
+      }
+    }
+    return workingHour;
   }
 
   void deleteFromToWidget(String day, int index) {

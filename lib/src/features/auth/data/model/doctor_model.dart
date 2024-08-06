@@ -8,13 +8,14 @@ part 'doctor_model.g.dart';
 class DoctorModel {
   @JsonKey(name: 'section_id')
   final String sectionId;
-  @JsonKey(name: 'session_duration')
+  @JsonKey(name: 'session_durtion')
   final String sessionDuration;
   @JsonKey(name: 'days_in_advance')
   final String daysInAdvance;
   @JsonKey(name: 'user_id')
   final int userId;
   final int id;
+  @JsonKey(name: 'user')
   final UserModel userData;
   final SectionModel section;
   DoctorModel(
