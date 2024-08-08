@@ -1,4 +1,4 @@
-const baseServ = "http://192.168.1.13:8000/";
+const baseServ = "http://192.168.1.10:8000/";
 const baseUrl = "${baseServ}api/";
 const auth = 'auth/';
 

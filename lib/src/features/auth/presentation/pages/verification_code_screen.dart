@@ -1,15 +1,18 @@
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
+import 'package:doctor_app/core/routing/app_router.dart';
 import 'package:doctor_app/core/utils/assets_manager.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/core/widgets/custom_progress_state_button.dart';
 import 'package:doctor_app/core/widgets/toast_bar.dart';
 import 'package:doctor_app/src/features/auth/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:doctor_app/src/features/auth/presentation/pages/widgets/resend_count_down_widget.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 
 class VerificationCodeScreen extends StatelessWidget {
@@ -39,6 +42,7 @@ class VerificationCodeScreen extends StatelessWidget {
             message: "Login in successfully",
             title: "Success",
           );
+          context.pushReplacement(AppRouter.kBottomNavigationScreen);
         }
       },
       child: Scaffold(
@@ -172,6 +176,14 @@ class VerificationCodeScreen extends StatelessWidget {
                             ),
                             const Spacer(),
                             BlocBuilder<AuthCubit, AuthState>(
+                              buildWhen: (previous, current) {
+                                if (current is FinishTimeState) {
+                                  return true;
+                                } else if (current is RequestCodeSuccessState) {
+                                  return true;
+                                }
+                                return false;
+                              },
                               builder: (context, state) {
                                 return ResendCountDown(
                                   secondsToWait: Duration(
@@ -196,54 +208,6 @@ class VerificationCodeScreen extends StatelessWidget {
           ],
         )),
       ),
-    );
-  }
-}
-
-class ResendCountDown extends StatelessWidget {
-  const ResendCountDown({
-    super.key,
-    required this.onResendPressed,
-    required this.secondsToWait,
-  });
-  final void Function()? onResendPressed;
-  final Duration secondsToWait;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Did\'t receive the OTP? ',
-          style: StyleManager.fontRegular16,
-        ),
-        BlocProvider.of<AuthCubit>(context).isFinished
-            ? TextButton(
-                onPressed: onResendPressed,
-                child: Text(
-                  'Resend',
-                  style: StyleManager.fontMedium16.copyWith(
-                    color: ColorsHelper.primary,
-                  ),
-                ),
-              )
-            : TimerCountdown(
-                format: CountDownTimerFormat.minutesSeconds,
-                spacerWidth: 2,
-                timeTextStyle: StyleManager.fontMedium16.copyWith(
-                  color: ColorsHelper.primary,
-                ),
-                enableDescriptions: false,
-                onEnd: () {
-                  BlocProvider.of<AuthCubit>(context).finishTime();
-                },
-                endTime: DateTime.now().add(
-                  Duration(
-                      seconds: BlocProvider.of<AuthCubit>(context).waitSeconds),
-                ),
-              ),
-      ],
     );
   }
 }

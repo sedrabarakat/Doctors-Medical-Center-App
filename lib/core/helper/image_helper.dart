@@ -4,7 +4,6 @@ import 'dart:io';
 class ImageHelper {
   static final ImagePicker _imagePicker = ImagePicker();
   static Future<File?> pickImage(ImageSource source) async {
-    print("HELLO WORLD");
     XFile? pickedImage;
     switch (source) {
       case ImageSource.camera:

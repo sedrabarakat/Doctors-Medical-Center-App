@@ -21,7 +21,6 @@ class SignUpScreen extends StatelessWidget {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignUpErrorState) {
-          print(state.error);
           ToastBar.onNetworkFailure(
             context,
             networkException: state.error,

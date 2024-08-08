@@ -41,7 +41,6 @@ class AuthCubit extends Cubit<AuthState> {
   };
 
   String code = "";
-  int numberOfSuccessResend = -1;
   int waitSeconds = 10;
   bool isFinished = true;
   Future<void> requestCode() async {

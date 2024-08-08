@@ -37,6 +37,11 @@ class StyleManager {
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );
+  static TextStyle fontMedium13 = const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 13,
+    color: ColorsHelper.lighGrey,
+  );
   /*>>>>>>>>>> Regular <<<<<<<<<<*/
   static TextStyle fontRegular20White = const TextStyle(
     fontSize: 20,
