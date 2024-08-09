@@ -11,4 +11,5 @@ class ColorsHelper {
   static const black = Colors.black;
 
   static const lighGrey = Color(0xFFAEAEAE);
+  static const lightestGrey = Color.fromARGB(255, 220, 220, 220);
 }

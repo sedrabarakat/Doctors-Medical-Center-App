@@ -59,7 +59,7 @@ class AuthRemoteDataSource {
             'image': image != null
                 ? MultipartFile.fromBytes(image, filename: phoneNumber)
                 : null,
-            'section_id': sectionId,
+            'section_id': '21',
             'session_durtion': sessionDuration,
             'days_in_advance': daysInAadvance,
             'working_hours': workingHour.toJson(),
