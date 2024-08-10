@@ -110,7 +110,9 @@ class PatientProfileScreen extends StatelessWidget {
                   label: "Sessions",
                   icon: Icons.folder_copy,
                   iconColor: Colors.orangeAccent,
-                  onTap: () {},
+                  onTap: () {
+                    context.push(AppRouter.kPatientSessions);
+                  },
                 ),
               ],
             ),

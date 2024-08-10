@@ -3,7 +3,9 @@ import 'package:doctor_app/src/features/auth/presentation/pages/signup_screen.da
 import 'package:doctor_app/src/features/auth/presentation/pages/verification_code_screen.dart';
 import 'package:doctor_app/src/features/bottom_navigation_screen/bottom_navigation_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_profile_screen.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_sessions_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/personal_information_screen.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/pages/session_information_screen.dart';
 import 'package:doctor_app/src/features/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +16,9 @@ class AppRouter {
   static const kBottomNavigationScreen = '/bottom_navigation_screen';
   static const kPatientProfileScreen = '/patient_profile';
   static const kPatientPersonalInformationScreen =
-      '/patient_profile/personal_information';
+      '$kPatientProfileScreen/personal_information';
+  static const kPatientSessions = '$kPatientProfileScreen/patient_sessions';
+  static const kSessionInformation = '$kPatientSessions/session_information';
 
   static final router = GoRouter(
     routes: [
@@ -45,7 +49,16 @@ class AppRouter {
           GoRoute(
             path: 'personal_information',
             builder: (context, state) => const PersonalInformationScreen(),
-          )
+          ),
+          GoRoute(
+              path: 'patient_sessions',
+              builder: (context, state) => const PatientSessionsScreen(),
+              routes: [
+                GoRoute(
+                  path: 'session_information',
+                  builder: (context, state) => const SessionInformationScreen(),
+                )
+              ])
         ],
       )
     ],

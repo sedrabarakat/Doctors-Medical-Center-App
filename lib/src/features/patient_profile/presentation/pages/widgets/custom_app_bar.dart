@@ -57,7 +57,11 @@ class CustomAppBar extends StatelessWidget {
             height: AppSize.size10,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppSize.size30),
+            padding: const EdgeInsets.only(
+              left: AppSize.size30,
+              right: AppSize.size30,
+              bottom: AppSize.size20,
+            ),
             child: Row(
               children: [
                 Column(
@@ -76,7 +80,7 @@ class CustomAppBar extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
                   backgroundColor: ColorsHelper.white,
                   child: CircleAvatar(
@@ -85,7 +89,6 @@ class CustomAppBar extends StatelessWidget {
                     child: Icon(
                       Icons.person,
                       color: ColorsHelper.white,
-                      size: DimensionsHelper.widthPercentage(context, 15),
                     ),
                   ),
                 )
