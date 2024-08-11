@@ -54,7 +54,7 @@ class StyleManager {
     color: ColorsHelper.white,
   );
   static TextStyle fontMedium14 = const TextStyle(
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );

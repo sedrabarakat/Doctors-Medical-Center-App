@@ -1,6 +1,8 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_profile_screen.dart';
+import 'package:doctor_app/src/features/posts/presentation/pages/new_post_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
@@ -20,7 +22,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     const Test1(),
     const Test2(),
     const Test3(),
-    const Test4(),
+    NewPostScreen(),
     const Test5(),
   ];
   @override
