@@ -10,4 +10,10 @@ class AssetsManager {
   static const profileImage = '${_imagePath}profile_image.png';
   static const defUser = '${_imagePath}user.png';
 
+  static const addFile = '${_imagePath}add_file.svg';
+  static const pdf = '${_imagePath}pdf.svg';
+  static const picture = '${_imagePath}picture.svg';
+
+/*>>>>>>>>>> Wepbp Images <<<<<<<<<<*/
+  static const profileImage = '${_imagePath}profile.webp';
 }

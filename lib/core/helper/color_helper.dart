@@ -12,10 +12,13 @@ class ColorsHelper {
   static const Color blueDarker = Color(0xFF171778); // Darker blue
   static const Color blueDarkest = Color(0xFF0D0D4D); // Darkest blue
   static const primaryDark = Color(0XFF181461);
+  static const primaryLight = Color(0XFF4A4AC0);
+  static const turquoise = Color(0XFF2AC0A2);
 
   static const white = Colors.white;
 
   static const black = Colors.black;
 
   static const lighGrey = Color(0xFFAEAEAE);
+  static const lightestGrey = Color.fromARGB(255, 220, 220, 220);
 }

@@ -28,19 +28,40 @@ class StyleManager {
     fontWeight: FontWeight.w700,
     color: ColorsHelper.black,
   );
+  static TextStyle fontBold22 = const TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.white,
+  );
+  static TextStyle fontBold20 = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.black,
+  );
+  static TextStyle fontBold18 = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.black,
+  );
   static TextStyle fontBold16 = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
     color: ColorsHelper.black,
   );
+
   /*>>>>>>>>>> Medium <<<<<<<<<<*/
+  static TextStyle fontMedium18 = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.black54,
+  );
   static TextStyle fontMedium16 = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );
   static TextStyle fontMedium14 = const TextStyle(
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );

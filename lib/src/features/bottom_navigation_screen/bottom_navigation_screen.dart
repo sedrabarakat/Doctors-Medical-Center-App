@@ -1,6 +1,9 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_profile_screen.dart';
+import 'package:doctor_app/src/features/posts/presentation/pages/new_post_screen.dart';
+import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../home/presentation/screen/home.dart';
@@ -23,7 +26,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     const DoctorSchedule(),
     const Test2(),
     const Home(),
-    const Test4(),
+    const PostsScreen(),
     const Test5(),
   ];
   @override
