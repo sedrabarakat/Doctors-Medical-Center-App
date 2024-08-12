@@ -3,6 +3,9 @@ import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../home/presentation/screen/home.dart';
+import '../online_consultation/presentation/screen/doctor_schedule.dart';
+
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
 
@@ -17,9 +20,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   //todo put the actual screens
   final List<Widget> bottomBarPages = [
-    const Test1(),
+    const DoctorSchedule(),
     const Test2(),
-    const Test3(),
+    const Home(),
     const Test4(),
     const Test5(),
   ];
@@ -53,12 +56,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         elevation: 1,
         bottomBarItems: const [
           BottomBarItem(
-            inActiveItem: Icon(Icons.home),
+            inActiveItem: Icon(Icons.call),
             activeItem: Icon(
-              Icons.home,
+              Icons.call,
               color: ColorsHelper.white,
             ),
-            itemLabel: 'Home',
+            itemLabel: "Call",
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.favorite),
@@ -69,12 +72,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             itemLabel: 'Favorite',
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.call),
+            inActiveItem: Icon(Icons.home),
             activeItem: Icon(
-              Icons.call,
+              Icons.home,
               color: ColorsHelper.white,
             ),
-            itemLabel: "Call",
+            itemLabel: 'Home',
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.person),

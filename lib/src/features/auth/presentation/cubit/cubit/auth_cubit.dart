@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:bloc/bloc.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/helper/image_helper.dart';
@@ -69,6 +68,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(VerifyCodeErrorState(error: error));
     }, (data) {
       verifyButtonState = ButtonState.idle;
+
       emit(VerifyCodeSuccessState(user: data.data!));
     });
   }

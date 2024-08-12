@@ -2,8 +2,14 @@ import 'package:doctor_app/src/features/auth/presentation/pages/login_screen.dar
 import 'package:doctor_app/src/features/auth/presentation/pages/signup_screen.dart';
 import 'package:doctor_app/src/features/auth/presentation/pages/verification_code_screen.dart';
 import 'package:doctor_app/src/features/bottom_navigation_screen/bottom_navigation_screen.dart';
+import 'package:doctor_app/src/features/online_consultation/presentation/cubit/cubit.dart';
+import 'package:doctor_app/src/features/online_consultation/presentation/screen/add_schedule.dart';
+import 'package:doctor_app/src/features/online_consultation/presentation/screen/doctor_schedule.dart';
+import 'package:doctor_app/src/features/online_consultation/presentation/screen/specific_schedule.dart';
 import 'package:doctor_app/src/features/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
+
+import '../helper/token_helper.dart';
 
 class AppRouter {
   static const kLogin = '/login';
@@ -11,11 +17,19 @@ class AppRouter {
   static const kVerificationCode = '/verification_code';
   static const kBottomNavigationScreen = '/bottom_navigation_screen';
 
+  static const kDoctorSchedule = '/doctor_schedule';
+  static const kDoctorSpecificSchedule = '/specific_schedule';
+  static const kAdd_schedule = '/add_schedule';
+
+
   static final router = GoRouter(
+    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => (TokenHelper.hasToken)
+            ?SplashScreen(pushRoute: kBottomNavigationScreen)
+            :SplashScreen(pushRoute:kLogin),
       ),
       GoRoute(
         path: kLogin,
@@ -32,6 +46,21 @@ class AppRouter {
       GoRoute(
         path: kBottomNavigationScreen,
         builder: (context, state) => const BottomNavigationScreen(),
+      ),
+      GoRoute(
+        path: kDoctorSchedule,
+        builder: (context, state){
+          ScheduleCubit.get(context).getScheduleList(context);
+          return DoctorSchedule();
+        },
+      ),
+      GoRoute(
+        path: kDoctorSpecificSchedule,
+        builder: (context, state) => const SpacificSchedule(),
+      ),
+      GoRoute(
+        path: kAdd_schedule,
+        builder: (context, state) => const AddSchedule(),
       ),
     ],
   );
