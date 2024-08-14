@@ -7,17 +7,17 @@ part 'doctor_model.g.dart';
 @JsonSerializable()
 class DoctorModel {
   @JsonKey(name: 'section_id')
-  final String sectionId;
+  final int sectionId;
   @JsonKey(name: 'session_durtion')
-  final String sessionDuration;
+  final int sessionDuration;
   @JsonKey(name: 'days_in_advance')
-  final String daysInAdvance;
+  final int daysInAdvance;
   @JsonKey(name: 'user_id')
   final int userId;
   final int id;
   @JsonKey(name: 'user')
   final UserModel userData;
-  final SectionModel section;
+  final SectionModel ? section;
   DoctorModel(
       {required this.daysInAdvance,
       required this.id,

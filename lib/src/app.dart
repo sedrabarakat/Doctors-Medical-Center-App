@@ -5,6 +5,10 @@ import 'package:doctor_app/core/utils/theme_manager.dart';
 import 'package:doctor_app/src/features/auth/presentation/cubit/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'features/home/presentation/cubit/home_cubit.dart';
+import 'features/online_consultation/presentation/cubit/cubit.dart';
 
 class DoctorApp extends StatelessWidget {
   const DoctorApp({super.key});
@@ -15,15 +19,22 @@ class DoctorApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => AuthCubit(getIt()),
-        )
+        ),
+        BlocProvider(create: (context) => HomeCubit(getIt())),
+        BlocProvider(create: (context) => ScheduleCubit(getIt())..getScheduleList(context))
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeManager.myTheme,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        locale: const Locale('en'),
-        routerConfig: AppRouter.router,
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeManager.myTheme,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: const Locale('en'),
+          routerConfig: AppRouter.router,
+        ),
       ),
     );
   }

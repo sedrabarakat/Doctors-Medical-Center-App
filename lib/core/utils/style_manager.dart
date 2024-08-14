@@ -2,6 +2,7 @@
 
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StyleManager {
   /*>>>>>>>>>> ExtraBold <<<<<<<<<<*/
@@ -16,8 +17,29 @@ class StyleManager {
     color: ColorsHelper.black,
   );
   /*>>>>>>>>>> Bold <<<<<<<<<<*/
+  static TextStyle fontBold60= TextStyle(
+  fontSize: 30.sp,fontWeight: FontWeight.bold,
+  color: ColorsHelper.white,
+  fontFamily: 'Lobster-Regular'
+  );
+
   static TextStyle fontBold24 = const TextStyle(
     fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.black,
+  );
+  static TextStyle fontBold22 = const TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.white,
+  );
+  static TextStyle fontBold20 = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: ColorsHelper.black,
+  );
+  static TextStyle fontBold18 = const TextStyle(
+    fontSize: 18,
     fontWeight: FontWeight.w700,
     color: ColorsHelper.black,
   );
@@ -26,14 +48,20 @@ class StyleManager {
     fontWeight: FontWeight.w700,
     color: ColorsHelper.black,
   );
+
   /*>>>>>>>>>> Medium <<<<<<<<<<*/
+  static TextStyle fontMedium18 = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.black54,
+  );
   static TextStyle fontMedium16 = const TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );
   static TextStyle fontMedium14 = const TextStyle(
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     color: ColorsHelper.white,
   );
@@ -58,6 +86,12 @@ class StyleManager {
     fontWeight: FontWeight.w400,
     color: ColorsHelper.lighGrey,
   );
+  static TextStyle fontRegular14P = const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+      color: Colors.black54,
+      fontFamily: 'Poppins'
+  );
   static TextStyle fontRegular14 = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -68,4 +102,13 @@ class StyleManager {
     fontWeight: FontWeight.w400,
     color: ColorsHelper.lighGrey,
   );
+
+  ///shapes BoxDecoration
+  static BoxDecoration Circle_Shape({required Color color}) {
+    return BoxDecoration(
+      shape: BoxShape.circle,
+      color: color,
+
+    );
+  }
 }

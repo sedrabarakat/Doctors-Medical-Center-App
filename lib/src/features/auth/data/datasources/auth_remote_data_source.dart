@@ -1,14 +1,14 @@
 import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
 import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/domain/services/api_services.dart';
 import 'package:doctor_app/core/domain/urls/app_url.dart';
 import 'package:doctor_app/core/helper/dio_helper.dart';
-import 'package:doctor_app/core/interceptors/token_interceptor.dart';
 import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
+
+import '../../../../../core/data/data_sources/local.dart';
 
 class AuthRemoteDataSource {
   final ApiServices _apiServices;
@@ -29,7 +29,8 @@ class AuthRemoteDataSource {
       'phone_number': phoneNumber,
       'code': code,
     });
-    DioHelper().dio.interceptors.add(TokenInterceptor(response['token']));
+    await HiveService.Auth_Box!.put('Token',response['token']);
+    DioHelper().addTokenInterceptor();
 
     return BaseModel.fromJson(response, (json) => UserModel.fromJson(json));
   }
@@ -59,7 +60,7 @@ class AuthRemoteDataSource {
             'image': image != null
                 ? MultipartFile.fromBytes(image, filename: phoneNumber)
                 : null,
-            'section_id': sectionId,
+            'section_id': '21',
             'session_durtion': sessionDuration,
             'days_in_advance': daysInAadvance,
             'working_hours': workingHour.toJson(),

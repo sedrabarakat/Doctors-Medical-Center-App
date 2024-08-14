@@ -9,7 +9,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+   String pushRoute;
+   SplashScreen({super.key,required this.pushRoute});
+
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -18,15 +20,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    navigateToLoginScreen();
+    navigateToScreen();
     super.initState();
   }
 
-  void navigateToLoginScreen() {
+  void navigateToScreen() {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        context.pushReplacement(AppRouter.kLogin);
+        context.pushReplacement(widget.pushRoute);
       },
     );
   }

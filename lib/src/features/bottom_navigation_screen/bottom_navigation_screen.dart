@@ -1,10 +1,14 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../appointments/presentation/appointment_screen.dart';
 import '../profile_doctor/presentation/pages/profile_doctor.dart';
+
+import '../home/presentation/screen/home.dart';
+import '../online_consultation/presentation/screen/doctor_schedule.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
@@ -20,11 +24,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   //todo put the actual screens
   final List<Widget> bottomBarPages = [
-    const Test1(),
+    const DoctorSchedule(),
     AppointmentScreen(),
-    const Test3(),
+    const Home(),
     const ProfileDoctor(),
-    const Test5(),
+    const PostsScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -56,12 +60,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         elevation: 1,
         bottomBarItems: const [
           BottomBarItem(
-            inActiveItem: Icon(Icons.home),
+            inActiveItem: Icon(Icons.call),
             activeItem: Icon(
-              Icons.home,
+              Icons.call,
               color: ColorsHelper.white,
             ),
-            itemLabel: 'Home',
+            itemLabel: "Call",
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.calendar_month),
@@ -72,12 +76,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             itemLabel: 'Appointments',
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.call),
+            inActiveItem: Icon(Icons.home),
             activeItem: Icon(
-              Icons.call,
+              Icons.home,
               color: ColorsHelper.white,
             ),
-            itemLabel: "Call",
+            itemLabel: 'Home',
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.person),
@@ -118,6 +122,25 @@ class Test1 extends StatelessWidget {
         child: Center(
           child: Text(
             "Page 1",
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Test2 extends StatelessWidget {
+  const Test2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: Center(
+          child: Text(
+            "Page 2",
           ),
         ),
       ),
