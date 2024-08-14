@@ -36,7 +36,7 @@ class AuthCubit extends Cubit<AuthState> {
     'Tuesday': <FromToController>[FromToController()],
     'Wednesday': <FromToController>[FromToController()],
     'Thursday': <FromToController>[FromToController()],
-    'Firday': <FromToController>[FromToController()],
+    'Friday': <FromToController>[FromToController()],
     'Saturday': <FromToController>[FromToController()],
   };
 
@@ -127,7 +127,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   void setUpWorkingHour() {
     workingHour = WorkingHourModel(
-        friday: getWorkingHourForDay(days['Firday']),
+        friday: getWorkingHourForDay(days['Friday']),
         monday: getWorkingHourForDay(days['Monday']),
         saturday: getWorkingHourForDay(days['Saturday']),
         sunday: getWorkingHourForDay(days['Sunday']),

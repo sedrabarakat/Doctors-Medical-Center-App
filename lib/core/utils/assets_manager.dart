@@ -8,4 +8,9 @@ class AssetsManager {
   static const verificationCode = '${_imagePath}verification_code.svg';
 /*>>>>>>>>>> Png Images <<<<<<<<<<*/
   static const profileImage = '${_imagePath}profile_image.png';
+
+
+  /*>>>>>>>>>> animation <<<<<<<<<<*/
+  static const appointment = 'assets/animations/appointment.json';
+
 }

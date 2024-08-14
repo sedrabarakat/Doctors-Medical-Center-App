@@ -3,6 +3,9 @@ import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../appointments/presentation/appointment_screen.dart';
+import '../profile_doctor/presentation/pages/profile_doctor.dart';
+
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
 
@@ -18,9 +21,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   //todo put the actual screens
   final List<Widget> bottomBarPages = [
     const Test1(),
-    const Test2(),
+    AppointmentScreen(),
     const Test3(),
-    const Test4(),
+    const ProfileDoctor(),
     const Test5(),
   ];
   @override
@@ -61,12 +64,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             itemLabel: 'Home',
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.favorite),
+            inActiveItem: Icon(Icons.calendar_month),
             activeItem: Icon(
-              Icons.favorite,
+              Icons.calendar_month,
               color: ColorsHelper.white,
             ),
-            itemLabel: 'Favorite',
+            itemLabel: 'Appointments',
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.call),
@@ -115,25 +118,6 @@ class Test1 extends StatelessWidget {
         child: Center(
           child: Text(
             "Page 1",
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Test2 extends StatelessWidget {
-  const Test2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: Center(
-          child: Text(
-            "Page 2",
           ),
         ),
       ),

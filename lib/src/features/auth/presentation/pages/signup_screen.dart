@@ -58,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () async {
-                            await BlocProvider.of<AuthCubit>(context)
+                              await BlocProvider.of<AuthCubit>(context)
                                 .pickImage();
                           },
                           overlayColor:
