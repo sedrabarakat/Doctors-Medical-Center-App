@@ -4,6 +4,8 @@ import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../appointments/presentation/appointment_screen.dart';
+import '../profile_doctor/presentation/pages/profile_doctor.dart';
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
 import '../patient_profile/presentation/pages/patients_list.dart';
@@ -25,7 +27,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     const DoctorSchedule(),
     const PatientsList(),
     const Home(),
-    const Test4(),
+    const ProfileDoctor(),
     const PostsScreen(),
   ];
   @override

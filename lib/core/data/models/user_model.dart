@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'user_model.g.dart';
 
 @JsonSerializable()
@@ -16,24 +14,30 @@ class UserModel {
   final String phoneNumber;
   @JsonKey(name: 'user_type')
   final String userType;
-  String? description;
-  String? image;
+  final String? image;
+  final String? description;
   @JsonKey(name: 'remember_token')
-  String? rememberToken;
+  final String? rememberToken;
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
+  @JsonKey(name: 'updated_at')
+  final String? updatedAt;
   UserModel({
-    required this.id,
+    required this.description,
     required this.firstName,
-    required this.middleName,
+    required this.id,
     required this.lastName,
     required this.phoneNumber,
+    required this.middleName,
     required this.userType,
-    this.description,
     this.image,
     this.rememberToken,
+    this.updatedAt,
+    this.createdAt,
   });
+  String get fullName => "$firstName $lastName";
+
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
-
-  String get fullName => "$firstName $lastName";
 }
