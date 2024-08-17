@@ -14,7 +14,7 @@ class SchedulesModel{
  //todo doctor model when its end
 
  SchedulesModel(this.id, this.doctor_id, this.date, this.from_min, this.to_min,
-      this.created_at, this.updated_at);
+     this.created_at, this.updated_at);
 
  factory SchedulesModel.fromJson(Map<String,dynamic>json)=>_$SchedulesModelFromJson(json);
 
