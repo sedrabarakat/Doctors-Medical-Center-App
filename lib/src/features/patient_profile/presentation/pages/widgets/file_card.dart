@@ -1,13 +1,24 @@
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
+import 'package:doctor_app/core/helper/file_helper.dart';
 import 'package:doctor_app/core/utils/assets_manager.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/patient_profile/data/models/file_model.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_cubit.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class FileCard extends StatelessWidget {
-  const FileCard({super.key});
+  const FileCard({
+    super.key,
+    required this.onDownloadPressed,
+    required this.fileData,
+  });
+  final void Function()? onDownloadPressed;
 
+  final FileModel fileData;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,20 +48,37 @@ class FileCard extends StatelessWidget {
             width: AppSize.size10,
           ),
           Text(
-            "File name",
+            fileData.fileType,
             style: StyleManager.fontMedium16.copyWith(
               color: Colors.black,
             ),
           ),
           const Spacer(),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "Download",
-              style: StyleManager.fontMedium13.copyWith(
-                color: ColorsHelper.turquoise,
-              ),
-            ),
+          BlocBuilder<UploadDownloadCubit, UploadDownloadState>(
+            builder: (context, state) {
+              if (state is DownloadingFileState &&
+                  state.fileId == fileData.id) {
+                return CircularProgressIndicator(
+                  color: ColorsHelper.blue,
+                  value: state.value,
+                );
+              } else {
+                return TextButton(
+                  onPressed: fileData.downloaded
+                      ? () async {
+                          FileHelper.openFile(
+                              fileData.path, fileData.id, fileData.fileType);
+                        }
+                      : onDownloadPressed,
+                  child: Text(
+                    fileData.downloaded ? "Open" : "Download",
+                    style: StyleManager.fontMedium13.copyWith(
+                      color: ColorsHelper.blue,
+                    ),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),

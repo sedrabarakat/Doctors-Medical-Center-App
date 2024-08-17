@@ -1,12 +1,13 @@
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:doctor_app/core/data/models/base_model.dart';
+import 'package:doctor_app/core/data/models/user_model.dart';
 import 'package:doctor_app/core/domain/services/api_services.dart';
 import 'package:doctor_app/core/domain/urls/app_url.dart';
 import 'package:doctor_app/core/helper/dio_helper.dart';
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
-import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
+import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
+import 'package:doctor_app/src/features/patient_profile/data/models/service_model.dart';
 
 import '../../../../../core/data/data_sources/local.dart';
 
@@ -29,13 +30,12 @@ class AuthRemoteDataSource {
       'phone_number': phoneNumber,
       'code': code,
     });
-    await HiveService.Auth_Box!.put('Token',response['token']);
+    await HiveService.Auth_Box!.put('Token', response['token']);
     DioHelper().addTokenInterceptor();
 
     return BaseModel.fromJson(response, (json) => UserModel.fromJson(json));
   }
 
-  //todo add the working_hours
   Future<BaseModel<DoctorModel>> signUp({
     required String firstName,
     required String middleName,
@@ -60,7 +60,7 @@ class AuthRemoteDataSource {
             'image': image != null
                 ? MultipartFile.fromBytes(image, filename: phoneNumber)
                 : null,
-            'section_id': '21',
+            'section_id': sectionId,
             'session_durtion': sessionDuration,
             'days_in_advance': daysInAadvance,
             'working_hours': workingHour.toJson(),

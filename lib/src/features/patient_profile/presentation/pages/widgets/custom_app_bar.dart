@@ -6,11 +6,15 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
+    required this.maritalStatus,
+    required this.name,
     this.backButton = false,
     this.onBackButtonPressed,
   });
   final bool backButton;
   final void Function()? onBackButtonPressed;
+  final String name;
+  final String maritalStatus;
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -68,12 +72,12 @@ class CustomAppBar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Omar Fostok",
+                      name,
                       style:
                           StyleManager.fontBold24.copyWith(color: Colors.white),
                     ),
                     Text(
-                      "Single",
+                      maritalStatus,
                       style: StyleManager.fontRegular14
                           .copyWith(color: ColorsHelper.white),
                     ),

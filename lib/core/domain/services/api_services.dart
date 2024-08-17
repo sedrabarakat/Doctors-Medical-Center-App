@@ -23,6 +23,16 @@ abstract class ApiServices {
     String? key,
   });
 
+  Future downloadFile(
+    BuildContext context,
+    String path,
+    String savePath,
+    int fileId, {
+    Map<String, dynamic>? queryParams,
+    Map<String, dynamic>? body,
+    FormData? formData,
+  });
+
   Future postList(
     String path, {
     Map<String, String>? queryParams,

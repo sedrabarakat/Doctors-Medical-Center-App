@@ -1,11 +1,12 @@
 import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
+import 'package:doctor_app/core/data/models/user_model.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/helper/image_helper.dart';
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
-import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
+import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 import 'package:doctor_app/src/features/auth/domain/repos/auth_repo.dart';
+import 'package:doctor_app/src/features/patient_profile/data/models/service_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -42,6 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
   String code = "";
   int waitSeconds = 10;
   bool isFinished = true;
+  List<ServiceModel> services = [];
   Future<void> requestCode() async {
     loginButtonState = ButtonState.loading;
     isFinished = false;
@@ -82,7 +84,7 @@ class AuthCubit extends Cubit<AuthState> {
       middleName: middleNameController.text,
       lastName: lastNameController.text,
       phoneNumber: signUpPhoneNumberController.text,
-      sectionId: '1',
+      sectionId: '2',
       sessionDuration: sessionDurationController.text,
       daysInAadvance: daysInAdvanceController.text,
       image: pickedProfileImage,
@@ -96,6 +98,20 @@ class AuthCubit extends Cubit<AuthState> {
       signUpButtonState = ButtonState.idle;
       emit(SignUpSuccessState(data.data!));
     });
+  }
+
+  Map<String, int> getDoctorService(int doctorSectionId) {
+    Map<String, int> doctorServices = {};
+    for (int i = 0; i < services.length; i++) {
+      if (services[i].sectionId == doctorSectionId) {
+        doctorServices[services[i].name] = services[i].id;
+      }
+    }
+    return doctorServices;
+  }
+
+  String getServiceNameById(int id) {
+    return services.firstWhere((element) => element.id == id).name;
   }
 
   void addFromToWidget(String day) {

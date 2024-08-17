@@ -1,11 +1,11 @@
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
+import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/online_consultation/data/models/registeraitions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'specific_schedule.g.dart';
 
 @JsonSerializable()
-class SpecificScheduleModel{
+class SpecificScheduleModel {
   int id;
   String date;
   String from_min;
@@ -13,19 +13,13 @@ class SpecificScheduleModel{
   String created_at;
   String updated_at;
 
-  List<RegisteraitionsModel>registerations;
+  List<RegisteraitionsModel> registerations;
 
-  SpecificScheduleModel(this.id,this.date,this.created_at,this.from_min,
-      this.to_min,this.updated_at,this.registerations);
+  SpecificScheduleModel(this.id, this.date, this.created_at, this.from_min,
+      this.to_min, this.updated_at, this.registerations);
 
   factory SpecificScheduleModel.fromJson(Map<String, dynamic> json) =>
       _$SpecificScheduleModelFromJson(json);
 
-
   Map<String, dynamic> toJson() => _$SpecificScheduleModelToJson(this);
-
-
 }
-
-
-

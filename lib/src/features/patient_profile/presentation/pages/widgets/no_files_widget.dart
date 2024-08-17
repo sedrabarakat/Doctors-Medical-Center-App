@@ -46,7 +46,7 @@ class NoFilesWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: onAddFilePressed,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorsHelper.turquoise,
+                  backgroundColor: ColorsHelper.blue,
                   padding: const EdgeInsets.symmetric(
                     vertical: 15,
                   ),

@@ -21,7 +21,9 @@ class DoctorApp extends StatelessWidget {
           create: (context) => AuthCubit(getIt()),
         ),
         BlocProvider(create: (context) => HomeCubit(getIt())),
-        BlocProvider(create: (context) => ScheduleCubit(getIt())..getScheduleList(context))
+        BlocProvider(
+            create: (context) =>
+                ScheduleCubit(getIt())..getScheduleList(context))
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

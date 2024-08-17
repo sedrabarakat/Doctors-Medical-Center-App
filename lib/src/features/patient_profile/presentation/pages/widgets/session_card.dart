@@ -8,9 +8,15 @@ class SessionCard extends StatelessWidget {
     super.key,
     required this.isOpen,
     required this.onTap,
+    required this.date,
+    required this.price,
+    required this.time,
   });
   final bool isOpen;
   final void Function()? onTap;
+  final String date;
+  final String price;
+  final List<String> time;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -30,8 +36,8 @@ class SessionCard extends StatelessWidget {
         padding: const EdgeInsets.all(AppSize.size10),
         child: Row(
           children: [
-            const Text(
-              '09:',
+            Text(
+              "${time[0]}:",
               style: TextStyle(
                 color: ColorsHelper.primary,
                 fontSize: 28,
@@ -42,19 +48,19 @@ class SessionCard extends StatelessWidget {
               width: 5,
             ),
             RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 children: [
                   TextSpan(
-                    text: '00\n',
-                    style: TextStyle(
+                    text: '${time[1]}\n',
+                    style: const TextStyle(
                       color: ColorsHelper.primary,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   TextSpan(
-                    text: 'AM',
-                    style: TextStyle(
+                    text: time[2],
+                    style: const TextStyle(
                       color: ColorsHelper.lighGrey,
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
@@ -78,7 +84,7 @@ class SessionCard extends StatelessWidget {
                             .copyWith(color: ColorsHelper.primaryLight),
                       ),
                       TextSpan(
-                        text: "2020/12/1",
+                        text: date,
                         style: StyleManager.fontRegular14
                             .copyWith(color: ColorsHelper.black),
                       ),
@@ -95,7 +101,7 @@ class SessionCard extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: "100",
+                        text: price,
                         style: StyleManager.fontRegular14
                             .copyWith(color: ColorsHelper.black),
                       ),

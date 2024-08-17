@@ -1,3 +1,4 @@
+import 'package:doctor_app/core/data/models/patient_model.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/custom_app_bar.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/information_container.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class PersonalInformationScreen extends StatelessWidget {
-  const PersonalInformationScreen({super.key});
-
+  const PersonalInformationScreen({super.key, required this.patient});
+  final PatientModel patient;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +20,8 @@ class PersonalInformationScreen extends StatelessWidget {
               onBackButtonPressed: () {
                 context.pop();
               },
+              name: patient.userData.fullName,
+              maritalStatus: patient.maritalStatus,
             ),
             Padding(
               padding: const EdgeInsets.all(AppSize.screenPadding),
@@ -29,40 +32,44 @@ class PersonalInformationScreen extends StatelessWidget {
                     fields: [
                       PersonalInformationTextField(
                         label: 'First name',
-                        controller: TextEditingController(),
+                        initialValue: patient.userData.firstName,
                       ),
                       PersonalInformationTextField(
                         label: 'Middle name',
-                        controller: TextEditingController(),
+                        initialValue: patient.userData.middleName,
                       ),
                       PersonalInformationTextField(
                         label: 'Last name',
-                        controller: TextEditingController(),
+                        initialValue: patient.userData.lastName,
                       ),
                       PersonalInformationTextField(
                         label: 'Date of birth',
-                        controller: TextEditingController(),
+                        initialValue: patient.birthDate,
                       ),
                       PersonalInformationTextField(
                         label: 'Address',
-                        controller: TextEditingController(),
+                        initialValue: patient.address,
                       ),
                       PersonalInformationTextField(
                         label: 'Phone number',
-                        controller: TextEditingController(),
+                        initialValue: patient.userData.phoneNumber,
                       ),
                       PersonalInformationTextField(
                         label: 'Marital status',
-                        controller: TextEditingController(),
+                        initialValue: patient.maritalStatus,
                       ),
-                      PersonalInformationTextField(
-                        label: 'Number of children',
-                        controller: TextEditingController(),
-                      ),
-                      PersonalInformationTextField(
-                        label: 'Profession',
-                        controller: TextEditingController(),
-                      ),
+                      patient.childrenNum != null
+                          ? PersonalInformationTextField(
+                              label: 'Number of children',
+                              initialValue: patient.childrenNum.toString(),
+                            )
+                          : const SizedBox(),
+                      patient.proffesion != null
+                          ? PersonalInformationTextField(
+                              label: 'Profession',
+                              initialValue: patient.proffesion!,
+                            )
+                          : const SizedBox(),
                     ],
                   ),
                   const SizedBox(
@@ -71,17 +78,20 @@ class PersonalInformationScreen extends StatelessWidget {
                   InformationContainer(
                     label: 'Medical Information',
                     fields: [
-                      PersonalInformationTextField(
-                        label: 'Habits',
-                        controller: TextEditingController(),
-                      ),
+                      patient.habits != null
+                          ? PersonalInformationTextField(
+                              label: 'Habits',
+                              initialValue: patient.habits!,
+                            )
+                          : const SizedBox(),
                       PersonalInformationTextField(
                         label: 'Diabetes',
-                        controller: TextEditingController(),
+                        initialValue: patient.diabetes ? "Have" : "Haven't",
                       ),
                       PersonalInformationTextField(
                         label: 'Blood pressure',
-                        controller: TextEditingController(),
+                        initialValue:
+                            patient.bloodPressure ? "Have" : "Haven't",
                       ),
                     ],
                   ),

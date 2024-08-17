@@ -5,10 +5,11 @@ class PersonalInformationTextField extends StatefulWidget {
   const PersonalInformationTextField({
     super.key,
     required this.label,
-    required this.controller,
+    required this.initialValue,
   });
   final String label;
-  final TextEditingController controller;
+  final String initialValue;
+
   @override
   State<PersonalInformationTextField> createState() =>
       _PersonalInformationTextFieldState();
@@ -29,8 +30,8 @@ class _PersonalInformationTextFieldState
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.controller,
       focusNode: _focusNode,
+      initialValue: widget.initialValue,
       readOnly: true,
       decoration: InputDecoration(
         labelText: widget.label,

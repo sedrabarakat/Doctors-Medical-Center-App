@@ -14,21 +14,23 @@ class UserModel {
   final String phoneNumber;
   @JsonKey(name: 'user_type')
   final String userType;
-  String? description;
-  String? image;
+  final String? image;
+  final String? description;
   @JsonKey(name: 'remember_token')
-  String? rememberToken;
+  final String? rememberToken;
+
   UserModel({
-    required this.id,
     required this.firstName,
-    required this.middleName,
+    required this.id,
     required this.lastName,
+    required this.middleName,
     required this.phoneNumber,
+    required this.rememberToken,
     required this.userType,
-    this.description,
     this.image,
-    this.rememberToken,
+    this.description,
   });
+  String get fullName => '$firstName $lastName';
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
   Map<String, dynamic> toJson() => _$UserModelToJson(this);

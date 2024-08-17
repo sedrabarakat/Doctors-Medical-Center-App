@@ -7,6 +7,8 @@ import 'package:doctor_app/src/features/home/data/data_sources/home_remote.dart'
 import 'package:doctor_app/src/features/home/data/repo_impl/home_repo_impl.dart';
 import 'package:doctor_app/src/features/home/domain/repos/home_repo.dart';
 import 'package:doctor_app/src/features/online_consultation/data/repos/schedule_repo_imp.dart';
+import 'package:doctor_app/src/features/patient_profile/data/datasource/patient_remote_data_source.dart';
+import 'package:doctor_app/src/features/patient_profile/domain/repositories/patient_repo.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../src/features/online_consultation/data/remote/remote_schedule.dart';
@@ -25,20 +27,17 @@ Future locatorSetUp() async {
     () => AuthRepo(getIt()),
   );
 
-  getIt.registerLazySingleton<RemoteSchedule>(
-          ()=>RemoteSchedule(getIt())
+  getIt.registerLazySingleton<RemoteSchedule>(() => RemoteSchedule(getIt()));
+  getIt.registerLazySingleton<ScheduleRepo>(() => ScheduleRepoImpl(getIt()));
+  // Patient
+  getIt.registerLazySingleton<PatientRemoteDataSource>(
+    () => PatientRemoteDataSource(getIt()),
   );
-  getIt.registerLazySingleton<ScheduleRepo>(
-          ()=>ScheduleRepoImpl(getIt())
+  getIt.registerLazySingleton<PatientRepo>(
+    () => PatientRepo(getIt()),
   );
 
   ///home
-  getIt.registerLazySingleton<HomeRemote>(
-          ()=>HomeRemote(getIt())
-  );
-  getIt.registerLazySingleton<HomeRepo>(
-          ()=>HomeRepoImpl(getIt())
-  );
-
-
+  getIt.registerLazySingleton<HomeRemote>(() => HomeRemote(getIt()));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepoImpl(getIt()));
 }
