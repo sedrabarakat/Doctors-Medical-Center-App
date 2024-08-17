@@ -33,6 +33,8 @@ class TextField_def extends StatelessWidget {
       this.CursorColor = Colors.grey,
       this.textStyle,
         this.hintStyle,
+        this.SuffixWidget,
+        this.Is_SuffixWidget,
       this.borderStyle = const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(40)),
         borderSide: BorderSide(
@@ -70,6 +72,8 @@ class TextField_def extends StatelessWidget {
   final String? labelText;
   final TextStyle? labelStyle;
   final TextStyle? hintStyle;
+  final Widget ? SuffixWidget;
+  bool ?Is_SuffixWidget=false;
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +127,7 @@ class TextField_def extends StatelessWidget {
                         ? Theme.of(context).primaryColor
                         : Colors.grey,
                   ))
-              : null,
+              : (Is_SuffixWidget==true)?SuffixWidget:null,
           hintText: hintText),
     );
   }

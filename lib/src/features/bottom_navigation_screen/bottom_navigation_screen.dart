@@ -1,10 +1,10 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../appointments/presentation/appointment_screen.dart';
 import '../profile_doctor/presentation/pages/profile_doctor.dart';
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
@@ -101,6 +101,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           ),
         ],
         onTap: (index) {
+          if(index==2){
+            HomeCubit.get(context).getComingAppointment();
+            HomeCubit.get(context).getComingAppointment();
+            HomeCubit.get(context).getNextPatient();
+          }
           _pageController.jumpToPage(index);
         },
         kIconSize: 24.0,

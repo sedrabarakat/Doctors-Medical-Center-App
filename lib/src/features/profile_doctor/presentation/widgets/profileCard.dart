@@ -1,6 +1,8 @@
 import 'package:animations/animations.dart';
+import 'package:doctor_app/core/widgets/image_widget.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/data/models/user_model.dart';
 import '../../../../../core/helper/color_helper.dart';
@@ -102,72 +104,77 @@ Widget appointmentCard(BuildContext context, String patientName, String date, St
     closedBuilder: (context, openContainer) => GestureDetector(
       onTap: openContainer,
       child: Card(
+        color: Colors.blue.shade50,
         elevation: 6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                patientName,
-                style: StyleManager.fontRegular18.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+          child:Row(children: [
+            Image_widget(image: null),
+            SizedBox(width: 30.w,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  patientName,
+                  style: StyleManager.fontRegular18.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  const Icon(Icons.calendar_today, color: ColorsHelper.primary),
-                  const SizedBox(width: 8),
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
-                    transitionBuilder: (Widget child, Animation<double> animation) {
-                      return SlideTransition(
-                        position: Tween<Offset>(
-                          begin: const Offset(1.0, 0.0),
-                          end: Offset.zero,
-                        ).animate(animation),
-                        child: child,
-                      );
-                    },
-                    child: Text(
-                      date,
-                      key: ValueKey(date),
-                      style:StyleManager.fontRegular18,
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.calendar_today, color: ColorsHelper.primary),
+                    const SizedBox(width: 8),
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      transitionBuilder: (Widget child, Animation<double> animation) {
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
+                      },
+                      child: Text(
+                        date,
+                        key: ValueKey(date),
+                        style:StyleManager.fontRegular18,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  const Icon(Icons.access_time, color: Colors.redAccent),
-                  const SizedBox(width: 8),
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
-                    transitionBuilder: (Widget child, Animation<double> animation) {
-                      return SlideTransition(
-                        position: Tween<Offset>(
-                          begin: const Offset(-1.0, 0.0),
-                          end: Offset.zero,
-                        ).animate(animation),
-                        child: child,
-                      );
-                    },
-                    child: Text(
-                      '$time pm',
-                      key: ValueKey(time),
-                      style: StyleManager.fontRegular14,
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.access_time, color: Colors.redAccent),
+                    const SizedBox(width: 8),
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      transitionBuilder: (Widget child, Animation<double> animation) {
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(-1.0, 0.0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
+                      },
+                      child: Text(
+                        '$time pm',
+                        key: ValueKey(time),
+                        style: StyleManager.fontRegular14,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+                  ],
+                ),
+              ],
+            ),
+          ],)
         ),
       ),
     ),
@@ -236,7 +243,7 @@ Widget aboutTabSelectedColumn(
     UserModel user, List<String> availableDaysAndTime) {
   return Column(
     children: [
-      profileCard('Description', user.description),
+      profileCard('Description', user.description!),
       Row(
         children: [
           profileCard('Session Duration:', '15 min'),

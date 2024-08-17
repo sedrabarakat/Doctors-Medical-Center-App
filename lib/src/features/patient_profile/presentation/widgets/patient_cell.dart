@@ -1,3 +1,4 @@
+import 'package:doctor_app/core/data/models/patient_model.dart';
 import 'package:doctor_app/core/widgets/image_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,8 @@ import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/text_data.dart';
 
 
-Widget patientCellList({required GestureTapCallback tap}) {
+Widget patientCellList({required GestureTapCallback tap,
+required PatientModel patient}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
     child: InkWell(
@@ -34,14 +36,16 @@ Widget patientCellList({required GestureTapCallback tap}) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Sola Soooo",
+                        patient.personalInformation.fullName,
                         style: StyleManager.fontBold20Black,
                       ),
                       Text_Data(text: 'Age',textstyle:StyleManager.fontBold14,
-                        data: '25',
+                        data: patient.age,
                       ),
-                      Text_Data(text: 'Gender', data: 'female',textstyle:StyleManager.fontBold14,),
-                      Text_Data(text: 'descreption', data: 'ddddddd',textstyle:StyleManager.fontBold14,),
+                      Text_Data(text: 'Gender', data: patient.gender,textstyle:StyleManager.fontBold14,),
+                      Text_Data(text: 'Work', data:
+                        "${(patient.proffesion.length>20)?patient.proffesion.substring(0, 20): patient.proffesion!}..",
+                        textstyle:StyleManager.fontBold14,),
                     ],
                   ),
                 ),

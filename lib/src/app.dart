@@ -7,6 +7,7 @@ import 'package:doctor_app/src/features/online_consultation/presentation/cubits/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'features/appointments/presentation/cubits/appointment_cubit.dart';
 import 'features/home/presentation/cubit/home_cubit.dart';
 import 'features/online_consultation/presentation/cubits/cubit/cubit.dart';
 
@@ -22,6 +23,7 @@ class DoctorApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(getIt()),
         ),
+        BlocProvider(create: (context)=>AppointmentCubit(getIt())..getComingAppointment()..getArchiveAppointment(),),
         BlocProvider(create: (context) => HomeCubit(getIt())..getDoctorInfo()),
         BlocProvider(create: (context) => ScheduleCubit(getIt())..getScheduleList(context))
       ],
