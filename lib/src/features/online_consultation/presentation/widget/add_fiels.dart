@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/helper/color_helper.dart';
 import '../../../../../core/helper/date_helper.dart';
 import '../../../../../core/helper/time_helper.dart';
 import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/elevated_button.dart';
 import '../../../../../core/widgets/text_from_field.dart';
-import '../cubit/cubit.dart';
+import '../cubits/cubit/cubit.dart';
+
 
 Widget Fields({
   required context
@@ -96,7 +96,7 @@ Widget Fields({
           Padding(
             padding:  EdgeInsets.only(left: 240.w,top: 20.h),
             child: CustomElevatedButton(onPressed: () {
-              cubit.addSchedule();
+              cubit.addSchedule(context);
             }, label: 'Add',buttonColor: ColorsHelper.primary,),
           )
         ],

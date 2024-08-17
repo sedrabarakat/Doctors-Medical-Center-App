@@ -2,13 +2,13 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../appointments/presentation/appointment_screen.dart';
 import '../profile_doctor/presentation/pages/profile_doctor.dart';
-
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
+import '../patient_profile/presentation/pages/patients_list.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
@@ -25,7 +25,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   //todo put the actual screens
   final List<Widget> bottomBarPages = [
     const DoctorSchedule(),
-    AppointmentScreen(),
+    const PatientsList(),
     const Home(),
     const ProfileDoctor(),
     const PostsScreen(),
@@ -68,12 +68,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             itemLabel: "Call",
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.calendar_month),
+            inActiveItem: Icon(Icons.people_outline_sharp),
             activeItem: Icon(
-              Icons.calendar_month,
+              Icons.people,
               color: ColorsHelper.white,
             ),
-            itemLabel: 'Appointments',
+            itemLabel: 'Patients',
           ),
           BottomBarItem(
             inActiveItem: Icon(Icons.home),
@@ -92,12 +92,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
             itemLabel: 'Profile',
           ),
           BottomBarItem(
-            inActiveItem: Icon(Icons.settings),
+            inActiveItem: Icon(Icons.library_books_rounded),
             activeItem: Icon(
-              Icons.settings,
+              Icons.library_books_rounded,
               color: ColorsHelper.white,
             ),
-            itemLabel: 'Settings',
+            itemLabel: 'Posts',
           ),
         ],
         onTap: (index) {

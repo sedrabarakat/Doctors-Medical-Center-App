@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
 import 'package:doctor_app/src/features/home/presentation/cubit/home_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import '../../../../../core/data/models/doctor_model.dart';
 import '../../domain/repos/home_repo.dart';
 
 class HomeCubit extends Cubit<HomeStates>{

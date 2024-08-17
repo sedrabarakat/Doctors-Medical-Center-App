@@ -1,12 +1,11 @@
 import 'dart:typed_data';
-
 import 'package:dartz/dartz.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/src/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
-import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 import '../../../../../core/data/models/base_model.dart';
+import '../../../../../core/data/models/doctor_model.dart';
+import '../../../../../core/data/models/user_model.dart';
 
 class AuthRepo {
   final AuthRemoteDataSource _remote;

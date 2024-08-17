@@ -2,8 +2,6 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:doctor_app/core/routing/app_router.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/core/widgets/flexible_appbar.dart';
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/cubit.dart';
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/states.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/widget/schedule_cell.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +11,8 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../../core/helper/color_helper.dart';
 import '../../../../../core/widgets/toast_bar.dart';
+import '../cubits/cubit/cubit.dart';
+import '../cubits/cubit/states.dart';
 import '../widget/clip_path_container.dart';
 import '../widget/patient_cell.dart';
 
@@ -32,7 +32,7 @@ class SpacificSchedule extends StatelessWidget{
       ScheduleCubit cubit=ScheduleCubit.get(context);
       return Scaffold(
         backgroundColor: ColorsHelper.white,
-        appBar: appBarS(
+        appBar: appBar_Leading(
             title: "Appointment", backbutton: (){
           context.go(AppRouter.kBottomNavigationScreen);
         }),
@@ -51,7 +51,7 @@ class SpacificSchedule extends StatelessWidget{
                     ),),
                     SizedBox(width: 200.w,),
                     IconButton(onPressed: (){
-                      cubit.deleteSpecificSchedule();
+                      cubit.deleteSpecificSchedule(context:context);
                     }, icon: Icon(Icons.delete))
                   ],
                 )

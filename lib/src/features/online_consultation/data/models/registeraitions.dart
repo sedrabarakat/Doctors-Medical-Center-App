@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/data/models/patient_model.dart';
+
 part 'registeraitions.g.dart';
 
 @JsonSerializable()
@@ -19,13 +21,15 @@ class RegisteraitionsModel{
   String total_cost;
   String created_at;
   String updated_at;
+  PatientModel patient;
 
   RegisteraitionsModel(
       this.updated_at,this.created_at,this.id,
       this.total_cost,
       this.answered  ,this.doctor_id,
       this.online_guidance_schedule_id,this.patient_id,
-      this.call_length,this.channel_name,this.call_time
+      this.call_length,this.channel_name,this.call_time,
+      this.patient
       );
 
   factory RegisteraitionsModel.fromJson(Map<String, dynamic> json) => _$RegisteraitionsModelFromJson(json);

@@ -15,7 +15,7 @@ class UserModel {
   @JsonKey(name: 'user_type')
   final String userType;
   final String? image;
-  final String description;
+  final String? description;
   @JsonKey(name: 'remember_token')
   final String? rememberToken;
   @JsonKey(name: 'created_at')
