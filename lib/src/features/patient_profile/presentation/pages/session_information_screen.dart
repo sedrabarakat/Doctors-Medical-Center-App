@@ -1,11 +1,11 @@
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
-
 import 'package:doctor_app/core/utils/style_manager.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/custom_tab_bar.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/patient_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/custom_tab_bar.dart';
+import '../widgets/patient_card.dart';
 
 class SessionInformationScreen extends StatelessWidget {
   const SessionInformationScreen({super.key});

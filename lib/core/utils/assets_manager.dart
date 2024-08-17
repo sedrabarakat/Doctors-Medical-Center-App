@@ -7,7 +7,7 @@ class AssetsManager {
   static const loginImage = '${_imagePath}login_image.svg';
   static const verificationCode = '${_imagePath}verification_code.svg';
 /*>>>>>>>>>> Png Images <<<<<<<<<<*/
-  static const profileImage = '${_imagePath}profile_image.png';
+
   static const defUser = '${_imagePath}user.png';
 
   static const addFile = '${_imagePath}add_file.svg';

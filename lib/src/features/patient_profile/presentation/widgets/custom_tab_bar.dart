@@ -1,11 +1,10 @@
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/list_of_files.dart';
-
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/no_files_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'list_of_files.dart';
+import 'no_files_widget.dart';
 
 class CustomTabBarView extends StatefulWidget {
   const CustomTabBarView({super.key});

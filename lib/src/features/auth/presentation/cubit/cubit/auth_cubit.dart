@@ -2,15 +2,14 @@ import 'dart:typed_data';
 import 'package:bloc/bloc.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/helper/image_helper.dart';
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
-import 'package:doctor_app/src/features/auth/data/model/user_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 import 'package:doctor_app/src/features/auth/domain/repos/auth_repo.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:progress_state_button/progress_button.dart';
-
+import '../../../../../../core/data/models/doctor_model.dart';
+import '../../../../../../core/data/models/user_model.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {

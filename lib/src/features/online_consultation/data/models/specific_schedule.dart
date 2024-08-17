@@ -1,4 +1,5 @@
-import 'package:doctor_app/src/features/auth/data/model/doctor_model.dart';
+
+import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/online_consultation/data/models/registeraitions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -32,6 +32,7 @@ class TextField_def extends StatelessWidget {
       this.labelStyle,
       this.CursorColor = Colors.grey,
       this.textStyle,
+        this.hintStyle,
       this.borderStyle = const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(40)),
         borderSide: BorderSide(
@@ -68,6 +69,7 @@ class TextField_def extends StatelessWidget {
   final TextStyle? textStyle;
   final String? labelText;
   final TextStyle? labelStyle;
+  final TextStyle? hintStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +108,7 @@ class TextField_def extends StatelessWidget {
           filled: filled,
           fillColor:
               (fillColor != null) ? fillColor : ColorsHelper.primary.withOpacity(.15),
-          hintStyle: TextStyle(fontSize: 14, color: Colors.grey.shade800),
+          hintStyle: (hintStyle!=null)?hintStyle:TextStyle(fontSize: 14, color: Colors.grey.shade800),
           prefixIcon: iconData == null
               ? null
               : Icon(

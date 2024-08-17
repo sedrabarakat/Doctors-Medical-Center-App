@@ -3,6 +3,7 @@ import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/utils/assets_manager.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard({super.key});
@@ -10,42 +11,42 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 400.h,
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage(AssetsManager.profileImage),
-              ),
-              const SizedBox(
-                width: AppSize.size10,
-              ),
-              Text(
-                "Doctor Name",
-                style: StyleManager.fontBold16,
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.more_horiz,
-                  color: ColorsHelper.lighGrey,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 35.w,vertical: 16.h),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage(AssetsManager.profileImage),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
+                const SizedBox(
+                  width: AppSize.size10,
+                ),
+                Text(
+                  "Doctor Name",
+                  style: StyleManager.fontBold16,
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.more_horiz,
+                    color: ColorsHelper.lighGrey,
+                  ),
+                ),
+              ],
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 50),
+            padding: EdgeInsets.symmetric(horizontal: 35.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,6 +66,7 @@ class PostCard extends StatelessWidget {
                       50,
                   fit: BoxFit.fitWidth,
                 ),
+                SizedBox(height: 5.h,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

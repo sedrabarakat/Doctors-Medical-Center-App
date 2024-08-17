@@ -6,12 +6,13 @@ import 'package:doctor_app/src/features/patient_profile/presentation/pages/patie
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_sessions_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/personal_information_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/session_information_screen.dart';
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/cubit.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/add_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/doctor_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/specific_schedule.dart';
 import 'package:doctor_app/src/features/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
+import '../../src/features/online_consultation/presentation/cubits/cubit/cubit.dart';
+import '../../src/features/online_consultation/presentation/screen/video_call.dart';
 import '../helper/token_helper.dart';
 
 class AppRouter {
@@ -28,7 +29,7 @@ class AppRouter {
   static const kDoctorSchedule = '/doctor_schedule';
   static const kDoctorSpecificSchedule = '/specific_schedule';
   static const kAdd_schedule = '/add_schedule';
-
+  static const kVideoCall = '/video_call';
 
   static final router = GoRouter(
     initialLocation: '/',
@@ -73,7 +74,7 @@ class AppRouter {
                 )
               ])
         ],
-      )
+      ),
       GoRoute(
         path: kDoctorSchedule,
         builder: (context, state){
@@ -89,6 +90,8 @@ class AppRouter {
         path: kAdd_schedule,
         builder: (context, state) => const AddSchedule(),
       ),
+      GoRoute(path: kVideoCall,
+      builder: (context, state) => const VideoCall())
     ],
   );
 }

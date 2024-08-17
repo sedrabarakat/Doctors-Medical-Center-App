@@ -1,10 +1,10 @@
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/states.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/widget/clip_path_addschedule.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../cubit/cubit.dart';
+import '../cubits/cubit/cubit.dart';
+import '../cubits/cubit/states.dart';
 import '../widget/schedule_cell.dart';
 
 class DoctorSchedule extends StatelessWidget {
