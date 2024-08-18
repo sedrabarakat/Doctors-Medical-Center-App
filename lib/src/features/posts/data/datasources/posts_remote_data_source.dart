@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
 import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/domain/services/api_services.dart';

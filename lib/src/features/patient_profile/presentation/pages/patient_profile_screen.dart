@@ -24,6 +24,7 @@ class PatientProfileScreen extends StatelessWidget {
       create: (context) => PatientCubit(getIt()),
       child: Builder(builder: (context) {
         return Scaffold(
+          
           body: Column(
             children: [
               CustomAppBar(

@@ -1,6 +1,9 @@
 import 'package:doctor_app/src/features/patient_profile/presentation/widgets/patient_cell.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/routing/app_router.dart';
 
 Widget PatientsListView({required cubit}) {
   return SizedBox(
@@ -9,9 +12,10 @@ Widget PatientsListView({required cubit}) {
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) => patientCellList(
           tap: () {
-            ///todo omar
-            int id = cubit.myPatients[index].id;
-            //context.go()
+            context.push(
+              AppRouter.kPatientProfileScreen,
+              extra: cubit.myPatients[index],
+            );
           },
           patient: cubit.myPatients[index]),
       separatorBuilder: (context, index) => const SizedBox(),

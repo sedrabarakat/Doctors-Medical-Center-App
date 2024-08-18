@@ -20,13 +20,10 @@ class DoctorApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => VideoCallCubit(getIt())),
-        BlocProvider(
-          create: (context) => AuthCubit(getIt()),
-        ),
+        BlocProvider(create: (context) => AuthCubit(getIt()),),
         BlocProvider(create: (context) => HomeCubit(getIt())..getDoctorInfo()),
-        BlocProvider(
-            create: (context) =>
-                ScheduleCubit(getIt())..getScheduleList(context))
+        BlocProvider(create: (context) => ScheduleCubit(getIt())..getScheduleList(context)),
+        BlocProvider(create: (context) => AppointmentCubit(getIt())..getComingAppointment()..getArchiveAppointment())
       ],
       child: ScreenUtilInit(
         designSize: screenSize,

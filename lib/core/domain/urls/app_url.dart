@@ -1,4 +1,4 @@
-const baseServ = "http://192.168.1.7:8000/";
+const baseServ = "http://192.168.1.4:8000/";
 const baseUrl = "${baseServ}api/";
 const auth = 'auth/';
 const AppID_Agora = "53215bfd2c054ddc97c008da762ae819";

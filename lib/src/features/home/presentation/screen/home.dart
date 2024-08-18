@@ -48,7 +48,8 @@ class Home extends StatelessWidget {
                                 ),
                                 if (cubit.nextPatient != null)
                                   RecentPatient(
-                                      nextPatient: cubit.nextPatient!),
+                                      nextPatient: cubit.nextPatient!,
+                                  context: context),
                                 Row(
                                   children: [
                                     Padding(

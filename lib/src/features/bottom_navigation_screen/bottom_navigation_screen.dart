@@ -34,7 +34,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     const DoctorSchedule(),
     const PatientsList(),
     const Home(),
-    const Test4(),
+    const ProfileDoctor(),
     const PostsScreen(),
   ];
   @override

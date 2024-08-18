@@ -50,11 +50,9 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashScreen(pushRoute: kLogin),
-
-        // TokenHelper.hasToken
-        //     ? const SplashScreen(pushRoute: kBottomNavigationScreen)
-        //     : const SplashScreen(pushRoute: kLogin),
+        builder:(context, state) => (TokenHelper.hasToken)
+            ?SplashScreen(pushRoute: kBottomNavigationScreen)
+            :SplashScreen(pushRoute:kLogin),
       ),
       GoRoute(
         path: kLogin,

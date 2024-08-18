@@ -3,17 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/image_widget.dart';
 import '../../../../../core/widgets/text_data.dart';
 
-Widget RecentPatient({required AppointmentModel nextPatient}) {
+Widget RecentPatient({required AppointmentModel nextPatient,required context}) {
   return Padding(
     padding: EdgeInsets.symmetric(
       horizontal: 20.w,
     ),
     child: InkWell(
-      onTap: () {},
+      onTap: () {
+        context.push(
+          AppRouter.kPatientProfileScreen,
+          extra: nextPatient,
+        );
+      },
       child: Container(
           height: 110.h,
           decoration: BoxDecoration(

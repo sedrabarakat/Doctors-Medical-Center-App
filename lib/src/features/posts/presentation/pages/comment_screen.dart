@@ -4,12 +4,15 @@ import 'package:doctor_app/core/helper/date_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/utils/assets_manager.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/core/widgets/flexible_appbar.dart';
 import 'package:doctor_app/src/features/posts/data/models/comment_model.dart';
 import 'package:doctor_app/src/features/posts/presentation/cubits/posts_cubit.dart';
 import 'package:doctor_app/src/features/posts/presentation/cubits/posts_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../../../core/widgets/clip_path_container.dart';
 
 class CommentScreen extends StatelessWidget {
   const CommentScreen({super.key, required this.cubit});
@@ -21,11 +24,11 @@ class CommentScreen extends StatelessWidget {
       value: cubit,
       child: Builder(builder: (context) {
         return Scaffold(
-          appBar: AppBar(
-            title: const Text("Comments"),
-          ),
+          backgroundColor: Colors.white,
+          appBar: appBar(title: 'Comments'),
           body: Column(
             children: [
+              clipPathContainer(context: context, label: ''),
               Expanded(
                 child: BlocBuilder<PostsCubit, PostsState>(
                   buildWhen: (previous, current) {
