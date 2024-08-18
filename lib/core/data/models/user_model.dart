@@ -18,25 +18,19 @@ class UserModel {
   final String? description;
   @JsonKey(name: 'remember_token')
   final String? rememberToken;
-  @JsonKey(name: 'created_at')
-  final String? createdAt;
-  @JsonKey(name: 'updated_at')
-  final String? updatedAt;
+
   UserModel({
-    required this.description,
     required this.firstName,
     required this.id,
     required this.lastName,
-    required this.phoneNumber,
     required this.middleName,
+    required this.phoneNumber,
+    required this.rememberToken,
     required this.userType,
     this.image,
-    this.rememberToken,
-    this.updatedAt,
-    this.createdAt,
+    this.description,
   });
-  String get fullName => "$firstName $lastName";
-
+  String get fullName => '$firstName $lastName';
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
   Map<String, dynamic> toJson() => _$UserModelToJson(this);

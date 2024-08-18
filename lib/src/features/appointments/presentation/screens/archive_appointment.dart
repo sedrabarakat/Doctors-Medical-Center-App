@@ -15,43 +15,51 @@ import '../../../online_consultation/presentation/widget/clip_path_container.dar
 import '../../../profile_doctor/presentation/widgets/profileCard.dart';
 
 class ArchiveAppointmentScreen extends StatelessWidget {
-
   ArchiveAppointmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppointmentCubit,AppointmentStates>(
-      listener: (context,state){},
-      builder: (context,state){
-        AppointmentCubit cubit=AppointmentCubit.get(context);
+    return BlocConsumer<AppointmentCubit, AppointmentStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        AppointmentCubit cubit = AppointmentCubit.get(context);
         return Scaffold(
             backgroundColor: Colors.white,
-            appBar: appBar_Leading(backbutton: (){
-              context.go(AppRouter.kBottomNavigationScreen);
-            },title: 'Archive Appointment'),
+            appBar: appBar_Leading(
+                backbutton: () {
+                  context.go(AppRouter.kBottomNavigationScreen);
+                },
+                title: 'Archive Appointment'),
             body: Column(
               children: [
                 ClipPathContainer(height: 100.h),
-                if(cubit.archiveAppointment.length>0)
-                  Expanded(child:
-                  ListView.builder(
-                    //padding:const EdgeInsets.all(15),
-                    itemCount: cubit.archiveAppointment.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(right: DimensionsHelper.widthPercentage(context, 3),top: DimensionsHelper.heightPercentage(context, 1), left: DimensionsHelper.widthPercentage(context, 3)),
-                        child: appointmentCard(
-                          context,
-                          cubit.archiveAppointment[index].patient.personalInformation.fullName,
-                          cubit.archiveAppointment[index].date,
-                          cubit.archiveAppointment[index].start_min,
-                        ),
-                      );
-                    },
-                  ),)
+                if (cubit.archiveAppointment.length > 0)
+                  Expanded(
+                    child: ListView.builder(
+                      //padding:const EdgeInsets.all(15),
+                      itemCount: cubit.archiveAppointment.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                              right:
+                                  DimensionsHelper.widthPercentage(context, 3),
+                              top:
+                                  DimensionsHelper.heightPercentage(context, 1),
+                              left:
+                                  DimensionsHelper.widthPercentage(context, 3)),
+                          child: appointmentCard(
+                            context,
+                            cubit.archiveAppointment[index].patient.userData
+                                .fullName,
+                            cubit.archiveAppointment[index].date,
+                            cubit.archiveAppointment[index].start_min,
+                          ),
+                        );
+                      },
+                    ),
+                  )
               ],
-            )
-        );
+            ));
       },
     );
   }

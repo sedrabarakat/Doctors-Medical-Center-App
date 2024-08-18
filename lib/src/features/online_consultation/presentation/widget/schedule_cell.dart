@@ -11,15 +11,15 @@ Widget scheduleCell({
   required String date,
   required String fromTime,
   required String toTime,
-}){
-  ScheduleCubit cubit=ScheduleCubit.get(context);
+}) {
+  ScheduleCubit cubit = ScheduleCubit.get(context);
   return Padding(
-    padding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 23.w),
+    padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 23.w),
     child: InkWell(
-      onTap: (){
+      onTap: () {
         cubit.setSchedule_id(value: Schedule_id);
         cubit.getSpecificSchedule();
-        context.go('/specific_schedule');
+        context.push('/specific_schedule');
       },
       child: Container(
         clipBehavior: Clip.hardEdge,
@@ -27,19 +27,24 @@ Widget scheduleCell({
         height: 90.h,
         decoration: BoxDecoration(
             color: ColorsHelper.blueLightest,
-            borderRadius: BorderRadius.circular(30)
-        ),
+            borderRadius: BorderRadius.circular(30)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text_Data(text: "Date", data: date),
-            SizedBox(height: 10.h,),
-            Row(children: [
-              Text_Data(text: "from", data: fromTime),
-              SizedBox(width: 45.w,),
-              Text_Data(text: "to", data: toTime)
-            ],)
+            SizedBox(
+              height: 10.h,
+            ),
+            Row(
+              children: [
+                Text_Data(text: "from", data: fromTime),
+                SizedBox(
+                  width: 45.w,
+                ),
+                Text_Data(text: "to", data: toTime)
+              ],
+            )
           ],
         ),
       ),

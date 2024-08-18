@@ -4,15 +4,14 @@ import 'package:doctor_app/src/features/appointments/data/models/appointment_mod
 import '../../../../../core/data/models/doctor_model.dart';
 import '../../../../../core/data/models/patient_model.dart';
 
-abstract class HomeRepo{
+abstract class HomeRepo {
+  Future<Either<NetworkExceptions, DoctorModel>> getDoctorInfo();
 
-  Future<Either<NetworkExceptions,DoctorModel>>getDoctorInfo();
+  Future<Either<NetworkExceptions, List<AppointmentModel>>>
+      getComingAppointment();
 
-  Future<Either<NetworkExceptions, List<AppointmentModel>>>getComingAppointment();
+  Future<Either<NetworkExceptions, AppointmentModel>> getNextPatient();
 
-  Future<Either<NetworkExceptions, AppointmentModel>>getNextPatient();
-
-  Future<Either<NetworkExceptions,List<PatientModel>>> getMyPatient({
-    required String search
-  });
+  Future<Either<NetworkExceptions, List<PatientModel>>> getMyPatient(
+      {required String search});
 }

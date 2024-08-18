@@ -1,14 +1,21 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:doctor_app/core/data/models/patient_model.dart';
+import 'package:doctor_app/core/domain/services/api_services.dart';
+import 'package:doctor_app/core/domain/services/api_services_impl.dart';
+import 'package:doctor_app/core/domain/urls/app_url.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
+import 'package:doctor_app/core/helper/dimension_helper.dart';
+import 'package:doctor_app/core/helper/dio_helper.dart';
+import 'package:doctor_app/core/routing/app_router.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../profile_doctor/presentation/pages/profile_doctor.dart';
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
-import '../patient_profile/presentation/pages/patients_list.dart';
+import '../patients/presentation/pages/patients_list.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
@@ -101,7 +108,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           ),
         ],
         onTap: (index) {
-          if(index==2){
+          if (index == 2) {
             HomeCubit.get(context).getComingAppointment();
             HomeCubit.get(context).getComingAppointment();
             HomeCubit.get(context).getNextPatient();
@@ -172,21 +179,77 @@ class Test3 extends StatelessWidget {
   }
 }
 
-class Test4 extends StatelessWidget {
+class Test4 extends StatefulWidget {
   const Test4({super.key});
 
   @override
+  State<Test4> createState() => _Test4State();
+}
+
+class _Test4State extends State<Test4> {
+  bool isLoading = false;
+  List<PatientModel> patients = [];
+  @override
+  void initState() {
+    getPatients();
+    super.initState();
+  }
+
+  Future<void> getPatients() async {
+    setState(() {
+      isLoading = true;
+    });
+    ApiServices service = ApiServicesImp(DioHelper().dio);
+    final response = await service.get(AppUrl.patientList);
+    for (int i = 0; i < response['data'].length; i++) {
+      final temp = PatientModel.fromJson(response['data'][i]);
+      patients.add(temp);
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: Center(
-          child: Text(
-            "Page 4",
-          ),
-        ),
-      ),
+    return Scaffold(
+      body: isLoading
+          ? const SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: Center(
+                child: CircularProgressIndicator(
+                  color: ColorsHelper.blue,
+                ),
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(
+                AppSize.screenPadding,
+              ),
+              child: ListView.separated(
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    context.push(
+                      AppRouter.kPatientProfileScreen,
+                      extra: patients[index],
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: ColorsHelper.lighGrey,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Text(patients[index].userData.firstName),
+                  ),
+                ),
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 10,
+                ),
+                itemCount: patients.length,
+              ),
+            ),
     );
   }
 }

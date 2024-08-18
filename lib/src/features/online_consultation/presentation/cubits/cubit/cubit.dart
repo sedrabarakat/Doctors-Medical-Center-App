@@ -13,8 +13,6 @@ import '../../../data/models/registeraitions.dart';
 import '../../../domain/schedule_repo.dart';
 import '../agora/video_call_cubit.dart';
 
-
-
 class ScheduleCubit extends Cubit<ScheduleStates> {
   ScheduleRepo scheduleRepo;
 
@@ -48,7 +46,7 @@ class ScheduleCubit extends Cubit<ScheduleStates> {
   Future<void> getScheduleList(context) async {
     emit(Loading_GetSchedule_State());
     await HomeCubit.get(context).getDoctorInfo();
-    if(HomeCubit.doctorModel!=null) {
+    if (HomeCubit.doctorModel != null) {
       await scheduleRepo
           .getScheduleList(doctor_id: HomeCubit.doctorModel!.id)
           .then((value) {
@@ -85,24 +83,23 @@ class ScheduleCubit extends Cubit<ScheduleStates> {
     });
   }
 
-  Future<void>deleteSpecificSchedule({
-    required context
-})async{
+  Future<void> deleteSpecificSchedule({required context}) async {
     emit(Loading_DeleteSpecificSchedule_State());
-    await scheduleRepo.deleteSpecificSchedule(Schedule_id: Schedule_id)
-    .then((value){
-      value.fold((error){
+    await scheduleRepo
+        .deleteSpecificSchedule(Schedule_id: Schedule_id)
+        .then((value) {
+      value.fold((error) {
         emit(Error_DeleteSpecificSchedule_State());
-      }, (message){
+      }, (message) {
         getScheduleList(context);
         emit(Success_DeleteSpecificSchedule_State());
       });
     });
   }
 
-  Future<void> sendCallEvent({
-    required RegisteraitionsModel registeration,
-  required BuildContext context}) async {
+  Future<void> sendCallEvent(
+      {required RegisteraitionsModel registeration,
+      required BuildContext context}) async {
     emit(Loading_sendCall_State());
     await scheduleRepo
         .sendCallEvent(registeration_id: registeration.id)

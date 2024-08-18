@@ -18,7 +18,7 @@ class DoctorModel {
   final int id;
   @JsonKey(name: 'user')
   final UserModel userData;
-  final SectionModel ? section;
+  final SectionModel? section;
   DoctorModel(
       {required this.daysInAdvance,
         required this.id,
@@ -32,5 +32,3 @@ class DoctorModel {
       _$DoctorModelFromJson(json);
   Map<String, dynamic> toJson() => _$DoctorModelToJson(this);
 }
-
-

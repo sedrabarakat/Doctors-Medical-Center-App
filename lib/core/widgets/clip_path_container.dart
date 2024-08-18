@@ -8,6 +8,8 @@ import '../../../../../core/helper/color_helper.dart';
 PreferredSizeWidget clipPathContainer({
   required BuildContext context,
   required String label,
+  IconData? leadingIcon,
+  void Function()? onLeadingPressed,
 }) {
   return PreferredSize(
     preferredSize: Size(
@@ -22,12 +24,25 @@ PreferredSizeWidget clipPathContainer({
             width: double.infinity,
             color: ColorsHelper.primary,
           ),
+          leadingIcon != null
+              ? Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: onLeadingPressed,
+                    icon: Icon(
+                      leadingIcon,
+                      color: Colors.white,
+                      size: 22,
+                    ),
+                  ))
+              : const SizedBox(),
           Align(
-              alignment: Alignment.center,
-              child: Text(
-                label,
-                style: StyleManager.fontBold22.copyWith(color: Colors.white),
-              )),
+            alignment: Alignment.center,
+            child: Text(
+              label,
+              style: StyleManager.fontBold22.copyWith(color: Colors.white),
+            ),
+          ),
         ],
       ),
     ),

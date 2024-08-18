@@ -2,12 +2,28 @@ import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/utils/assets_manager.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
+import 'package:doctor_app/src/features/posts/presentation/cubits/posts_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({super.key});
+  const PostCard({
+    super.key,
+    required this.image,
+    required this.text,
+    required this.authorName,
+    required this.onLikePressed,
+    required this.liked,
+    required this.onCommentPressed,
+  });
+  final String text;
+  final String image;
 
+  final String authorName;
+  final bool liked;
+  final void Function()? onLikePressed;
+  final void Function()? onCommentPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +35,7 @@ class PostCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 35.w,vertical: 16.h),
+            padding: EdgeInsets.symmetric(horizontal: 35.w, vertical: 16.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -31,7 +47,7 @@ class PostCard extends StatelessWidget {
                   width: AppSize.size10,
                 ),
                 Text(
-                  "Doctor Name",
+                  authorName,
                   style: StyleManager.fontBold16,
                 ),
                 const Spacer(),
@@ -51,7 +67,7 @@ class PostCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "The best medical center in the world .... come visit us",
+                  text,
                   style: StyleManager.fontRegular16.copyWith(
                     color: Colors.black,
                   ),
@@ -59,24 +75,41 @@ class PostCard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Image.asset(
-                  'assets/images/test.jpeg',
+                Image.network(
+                  BlocProvider.of<PostsCubit>(context).getPostImage(image),
                   width: DimensionsHelper.widthPercentage(context, 100) -
                       AppSize.screenPadding -
                       50,
                   fit: BoxFit.fitWidth,
+                  errorBuilder: (context, error, stackTrace) => const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.error,
+                        color: ColorsHelper.primary,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("unable to load image"),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 5.h,),
+                SizedBox(
+                  height: 5.h,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
+                          onPressed: onLikePressed,
+                          icon: Icon(
                             Icons.thumb_up_alt,
-                            color: ColorsHelper.primary,
+                            color: liked
+                                ? ColorsHelper.primary
+                                : ColorsHelper.lighGrey,
                           ),
                         ),
                         Text(
@@ -88,7 +121,7 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: onCommentPressed,
                       icon: const Icon(
                         Icons.mode_comment_outlined,
                         color: ColorsHelper.lighGrey,

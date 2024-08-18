@@ -1,10 +1,12 @@
 import 'package:doctor_app/core/data/models/user_model.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'patient_model.g.dart';
 
 @JsonSerializable()
 class PatientModel {
+  final int id;
+  @JsonKey(name: 'user_id')
+  final int userId;
   @JsonKey(name: 'birth_date')
   final String birthDate;
   final String age;
@@ -14,19 +16,16 @@ class PatientModel {
   final String bloodType;
   @JsonKey(name: 'marital_status')
   final String maritalStatus;
+  @JsonKey(name: 'children_num')
+  final int? childrenNum;
   final String? habits;
-  final String proffesion;
+  final String? proffesion;
   final bool diabetes;
   @JsonKey(name: 'blood_pressure')
   final bool bloodPressure;
   final int wallet;
-  @JsonKey(name: 'user_id')
-  final int userId;
-  final int id;
-  final int children_num;
   @JsonKey(name: 'user')
-  final UserModel personalInformation;
-
+  final UserModel userData;
   PatientModel({
     required this.address,
     required this.age,
@@ -37,16 +36,14 @@ class PatientModel {
     required this.gender,
     required this.id,
     required this.maritalStatus,
-    required this.personalInformation,
-    required this.proffesion,
+    required this.userData,
     required this.userId,
     required this.wallet,
+    this.childrenNum,
     this.habits,
-    required this.children_num
+    this.proffesion,
   });
   factory PatientModel.fromJson(Map<String, dynamic> json) =>
       _$PatientModelFromJson(json);
   Map<String, dynamic> toJson() => _$PatientModelToJson(this);
 }
-
-

@@ -16,30 +16,29 @@ PatientModel _$PatientModelFromJson(Map<String, dynamic> json) => PatientModel(
       gender: json['gender'] as String,
       id: (json['id'] as num).toInt(),
       maritalStatus: json['marital_status'] as String,
-      personalInformation:
-          UserModel.fromJson(json['user'] as Map<String, dynamic>),
-      proffesion: json['proffesion'] as String,
+      userData: UserModel.fromJson(json['user'] as Map<String, dynamic>),
       userId: (json['user_id'] as num).toInt(),
       wallet: (json['wallet'] as num).toInt(),
+      childrenNum: (json['children_num'] as num?)?.toInt(),
       habits: json['habits'] as String?,
-      children_num: (json['children_num'] as num).toInt(),
+      proffesion: json['proffesion'] as String?,
     );
 
 Map<String, dynamic> _$PatientModelToJson(PatientModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'user_id': instance.userId,
       'birth_date': instance.birthDate,
       'age': instance.age,
       'gender': instance.gender,
       'address': instance.address,
       'blood_type': instance.bloodType,
       'marital_status': instance.maritalStatus,
+      'children_num': instance.childrenNum,
       'habits': instance.habits,
       'proffesion': instance.proffesion,
       'diabetes': instance.diabetes,
       'blood_pressure': instance.bloodPressure,
       'wallet': instance.wallet,
-      'user_id': instance.userId,
-      'id': instance.id,
-      'children_num': instance.children_num,
-      'user': instance.personalInformation,
+      'user': instance.userData,
     };

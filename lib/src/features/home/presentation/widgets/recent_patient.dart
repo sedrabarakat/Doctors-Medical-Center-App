@@ -3,24 +3,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/image_widget.dart';
 import '../../../../../core/widgets/text_data.dart';
 
-Widget RecentPatient({
-  required AppointmentModel nextPatient
-}){
-  return  Padding(
-    padding: EdgeInsets.symmetric(horizontal: 20.w,),
+Widget RecentPatient({required AppointmentModel nextPatient,required context}) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+      horizontal: 20.w,
+    ),
     child: InkWell(
-      onTap: (){},
+      onTap: () {
+        context.push(
+          AppRouter.kPatientProfileScreen,
+          extra: nextPatient,
+        );
+      },
       child: Container(
           height: 110.h,
           decoration: BoxDecoration(
               color: Colors.blue.shade100,
               borderRadius: BorderRadius.circular(30),
-              gradient: StyleManager.purbleGradients
-          ),
+              gradient: StyleManager.purbleGradients),
           child: Padding(
             padding: EdgeInsets.only(left: 15.w),
             child: Row(
@@ -37,13 +42,19 @@ Widget RecentPatient({
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        nextPatient.patient.personalInformation.fullName,
+                        nextPatient.patient.userData.fullName,
                         style: StyleManager.fontBold20Black,
                       ),
-                      Text_Data(text: 'Age',textstyle:StyleManager.fontRegular14black,
+                      Text_Data(
+                        text: 'Age',
+                        textstyle: StyleManager.fontRegular14black,
                         data: nextPatient.patient.age,
                       ),
-                      Text_Data(text: 'Start', data: nextPatient.start_min,textstyle:StyleManager.fontRegular14black,),
+                      Text_Data(
+                        text: 'Start',
+                        data: nextPatient.start_min,
+                        textstyle: StyleManager.fontRegular14black,
+                      ),
                     ],
                   ),
                 ),

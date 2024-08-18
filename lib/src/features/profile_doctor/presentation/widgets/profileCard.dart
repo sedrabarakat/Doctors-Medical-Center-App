@@ -207,7 +207,8 @@ Widget appointmentCard(BuildContext context, String patientName, String date, St
           const SizedBox(height: 20),
           Row(
             children: [
-              const Icon(Icons.calendar_today, color: Colors.blueAccent, size: 30),
+              const Icon(Icons.calendar_today,
+                  color: Colors.blueAccent, size: 30),
               const SizedBox(width: 12),
               Text(
                 date,
@@ -229,7 +230,6 @@ Widget appointmentCard(BuildContext context, String patientName, String date, St
         ],
       ),
     ),
-
   );
 }
 //
