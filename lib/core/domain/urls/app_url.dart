@@ -29,6 +29,14 @@ class AppUrl {
       '${baseUrl}online_guidance_registeration/declineCallEvent/'; //{channel_name}
   static const acceptCallEvent =
       '${baseUrl}online_guidance_registeration/acceptCallEvent/'; //{channel_name}
+
+  static const getMyPatients = '${baseUrl}doctor/getMyPatients';
+  static const getNextPatient = '${baseUrl}doctor/next';
+
+  ///appointments
+  static const getComingAppointment = '${baseUrl}doctor/coming';
+  static const getArchiveAppointment = '${baseUrl}doctor/archive';
+
   ///**************************** Patient ****************************/
   static const patientList = "${baseUrl}dashboard/patient";
   static const getPatientSession = "${baseUrl}dashboard/session/sessions/";

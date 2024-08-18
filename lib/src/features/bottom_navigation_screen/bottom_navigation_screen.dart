@@ -8,10 +8,11 @@ import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/helper/dio_helper.dart';
 import 'package:doctor_app/core/routing/app_router.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
-
+import 'package:doctor_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/posts_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../profile_doctor/presentation/pages/profile_doctor.dart';
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
 import '../patient_profile/presentation/pages/patients_list.dart';
@@ -107,6 +108,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           ),
         ],
         onTap: (index) {
+          if (index == 2) {
+            HomeCubit.get(context).getComingAppointment();
+            HomeCubit.get(context).getComingAppointment();
+            HomeCubit.get(context).getNextPatient();
+          }
           _pageController.jumpToPage(index);
         },
         kIconSize: 24.0,

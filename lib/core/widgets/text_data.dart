@@ -13,6 +13,7 @@ Widget Text_Data({
     crossAxisAlignment: CrossAxisAlignment.end,
     children: [
     Text("$text : ",style: (textstyle!=null)?textstyle:StyleManager.font14Bold,),
-    Text("$data",style: StyleManager.fontRegular14P,),
+    Text("$data",style: StyleManager.fontRegular14P,
+    maxLines: 1,overflow: TextOverflow.ellipsis,),
   ],);
 }

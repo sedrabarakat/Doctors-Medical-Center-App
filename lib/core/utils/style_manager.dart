@@ -77,7 +77,7 @@ class StyleManager {
     fontFamily: 'Lobster-Regular',
     overflow: TextOverflow.ellipsis,
   );
-  static TextStyle font14BoldDark= TextStyle(
+  static TextStyle font14BoldPoppins= TextStyle(
     fontSize: 14.sp,fontWeight: FontWeight.bold,
     color: ColorsHelper.primary,
     fontFamily: 'Poppins-bold',
@@ -143,6 +143,12 @@ class StyleManager {
     fontFamily: 'Poppins-bold',
     color: Colors.grey,
   );
+  static const TextStyle fontRegular14black = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Poppins-bold',
+    color: Colors.black,
+  );
   static TextStyle fontRegular12 = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -186,5 +192,16 @@ class StyleManager {
         Colors.indigoAccent.withOpacity(.9),
         Colors.indigoAccent.withOpacity(.8),
         Colors.indigoAccent.withOpacity(.7),
+      ]);
+
+  static LinearGradient purbleGradients=LinearGradient(
+      begin: Alignment.bottomLeft,
+      end: Alignment.topRight,
+      colors: [
+        Colors.blue.withOpacity(.4),
+        Colors.blue.withOpacity(.3),
+        Colors.blueAccent.withOpacity(.4),
+        Colors.blueAccent.withOpacity(.3),
+        Colors.blueAccent.withOpacity(.2),
       ]);
 }

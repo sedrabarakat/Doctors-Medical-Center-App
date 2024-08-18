@@ -59,6 +59,7 @@ class PatientCubit extends Cubit<PatientState> {
       if (services.isEmpty) {
         await getServices();
       }
+
       emit(GetpatientSessionsSuccessState(
         openedSession: openedSession,
         closedSession: closedSession,
@@ -304,6 +305,9 @@ class PatientCubit extends Cubit<PatientState> {
         doctorServices[services[i].name] = services[i].id;
       }
     }
+    print(
+        "________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________v");
+    print(doctorServices.length);
     return doctorServices;
   }
 

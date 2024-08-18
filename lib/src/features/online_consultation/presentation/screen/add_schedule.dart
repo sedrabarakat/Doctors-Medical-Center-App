@@ -2,6 +2,7 @@ import 'package:doctor_app/core/widgets/flexible_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/widgets/toast_bar.dart';
@@ -32,6 +33,7 @@ class AddSchedule extends StatelessWidget {
               Image.asset(
                 "assets/images/Online Doctor.gif",
               ),
+              SizedBox(height: 10.h,),
               ClipPathContainer(),
               Fields(context: context)
             ],

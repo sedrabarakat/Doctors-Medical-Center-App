@@ -1,3 +1,4 @@
+import 'package:doctor_app/core/data/models/patient_model.dart';
 import 'package:doctor_app/core/widgets/image_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/text_data.dart';
 
-
-Widget patientCellList({required GestureTapCallback tap}) {
+Widget patientCellList(
+    {required GestureTapCallback tap, required PatientModel patient}) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
     child: InkWell(
@@ -14,9 +15,8 @@ Widget patientCellList({required GestureTapCallback tap}) {
       child: Container(
           height: 140.h,
           decoration: BoxDecoration(
-              color: Colors.indigoAccent.withOpacity(.2),
-              borderRadius: BorderRadius.circular(30),
-
+            color: Colors.indigoAccent.withOpacity(.2),
+            borderRadius: BorderRadius.circular(30),
           ),
           child: Padding(
             padding: EdgeInsets.only(left: 15.w),
@@ -34,14 +34,25 @@ Widget patientCellList({required GestureTapCallback tap}) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Sola Soooo",
+                        patient.userData.fullName,
                         style: StyleManager.fontBold20Black,
                       ),
-                      Text_Data(text: 'Age',textstyle:StyleManager.fontBold14,
-                        data: '25',
+                      Text_Data(
+                        text: 'Age',
+                        textstyle: StyleManager.fontBold14,
+                        data: patient.age,
                       ),
-                      Text_Data(text: 'Gender', data: 'female',textstyle:StyleManager.fontBold14,),
-                      Text_Data(text: 'descreption', data: 'ddddddd',textstyle:StyleManager.fontBold14,),
+                      Text_Data(
+                        text: 'Gender',
+                        data: patient.gender,
+                        textstyle: StyleManager.fontBold14,
+                      ),
+                      Text_Data(
+                        text: 'Work',
+                        data:
+                            "${(patient.proffesion!.length > 20) ? patient.proffesion!.substring(0, 20) : patient.proffesion!}..",
+                        textstyle: StyleManager.fontBold14,
+                      ),
                     ],
                   ),
                 ),
@@ -62,10 +73,8 @@ Widget patientListCon() {
             height: 130.h,
             width: 400.w,
             decoration: BoxDecoration(
-                boxShadow: [
-                  StyleManager.shadow
-                ],
-                gradient:StyleManager.indigoGradients,
+                boxShadow: [StyleManager.shadow],
+                gradient: StyleManager.indigoGradients,
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(20)),
             child: TextsColumn),
@@ -88,7 +97,7 @@ Widget patientListCon() {
   );
 }
 
-Widget TextsColumn=Column(
+Widget TextsColumn = Column(
   mainAxisAlignment: MainAxisAlignment.center,
   crossAxisAlignment: CrossAxisAlignment.start,
   children: [
@@ -107,4 +116,3 @@ Widget TextsColumn=Column(
     )
   ],
 );
-
