@@ -36,7 +36,7 @@ class SpacificSchedule extends StatelessWidget {
             appBar: appBar_Leading(
                 title: "Appointment",
                 backbutton: () {
-                  context.pop();
+                  context.go(AppRouter.kDoctorSchedule);
                 }),
             body: ConditionalBuilder(
                 condition: cubit.specificScheduleModel != null,
