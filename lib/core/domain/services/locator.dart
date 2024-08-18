@@ -19,6 +19,8 @@ import '../../../src/features/online_consultation/data/remote/remote_schedule.da
 import '../../../src/features/online_consultation/domain/schedule_repo.dart';
 import '../../../src/features/patient_profile/data/remote/remote_patients.dart';
 import '../../../src/features/patient_profile/data/repo_impl/list_repo_impl.dart';
+import '../../../src/features/profile_doctor/data/remote/remote_doctor_profile.dart';
+import '../../../src/features/profile_doctor/domain/doctor_profile_repo.dart';
 
 final getIt = GetIt.I;
 
@@ -67,6 +69,12 @@ Future locatorSetUp() async {
   );
   getIt.registerLazySingleton<AppointmentRepo>(
           ()=>AppointmentRepo(getIt())
+  );
+  getIt.registerLazySingleton<RemoteDoctorProfile>(
+          ()=>RemoteDoctorProfile(getIt())
+  );
+  getIt.registerLazySingleton<DoctorProfileRepo>(
+          ()=>DoctorProfileRepo(getIt())
   );
 
 

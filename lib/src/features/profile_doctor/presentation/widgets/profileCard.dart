@@ -1,10 +1,9 @@
 import 'package:animations/animations.dart';
+import 'package:doctor_app/core/data/models/doctor_profile_model.dart';
 import 'package:doctor_app/core/widgets/image_widget.dart';
 import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/data/models/user_model.dart';
 import '../../../../../core/helper/color_helper.dart';
 import '../../../../../core/helper/dimension_helper.dart';
 import '../../../../../core/utils/style_manager.dart';
@@ -66,12 +65,7 @@ Widget headerProfile(BuildContext context, String imageUrl) {
       top: DimensionsHelper.heightPercentage(context, 4),
       left: DimensionsHelper.widthPercentage(context, 10),
       right: DimensionsHelper.widthPercentage(context, 10),
-      child: Image.asset(
-        'assets/images/doctor_profile.png',
-        width: 60, // 2 * radius of CircleAvatar
-        height: 250,
-        fit: BoxFit.fill,
-      ),
+      child: network_image_widget(image: imageUrl),
     )
   ]);
 }
@@ -238,16 +232,100 @@ Widget appointmentCard(BuildContext context, String patientName, String date, St
 
   );
 }
-
-Widget aboutTabSelectedColumn(
-    UserModel user, List<String> availableDaysAndTime) {
+//
+// Widget aboutTabSelectedColumn(DoctorProfileModel doctor)  {
+//   return Column(
+//     children: [
+//       profileCard('Description', doctor.user.description!),
+//       Row(
+//         children: [
+//           profileCard('Session Duration:', doctor.sessionDuration.toString()),
+//           profileCard('Days in advance:    ', doctor.daysInAdvance.toString()),
+//         ],
+//       ),
+//       Card(
+//         elevation: 6,
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(15),
+//         ),
+//         child: ExpansionTile(
+//           title: const Text(
+//             'My Schedule :',
+//             style: TextStyle(
+//               color: ColorsHelper.primary,
+//               fontSize: 18,
+//               fontWeight: FontWeight.w500,
+//             ),
+//           ),
+//           children: doctor.schedule.workingHours((schedule) {
+//             return Padding(
+//               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+//               child: Card(
+//                 elevation: 5,
+//                 shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(15),
+//                 ),
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.stretch,
+//                   children: [
+//                     Container(
+//                       decoration: BoxDecoration(
+//                         color: ColorsHelper.primary.withOpacity(0.1),
+//                         borderRadius: const BorderRadius.vertical(
+//                           top: Radius.circular(15),
+//                         ),
+//                       ),
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Row(
+//                         children: [
+//                           const Icon(
+//                             Icons.calendar_today,
+//                             color: ColorsHelper.primary,
+//                           ),
+//                           const SizedBox(width: 8),
+//                           Text(
+//                             schedule.day,
+//                             style: const TextStyle(
+//                               color: ColorsHelper.primary,
+//                               fontSize: 16,
+//                               fontWeight: FontWeight.bold,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     Column(
+//                       children: schedule.times.map<Widget>((time) {
+//                         return ListTile(
+//                           leading: const Icon(Icons.access_time,
+//                               color: ColorsHelper.primary),
+//                           title: Text(
+//                             time,
+//                             style: const TextStyle(fontSize: 15),
+//                           ),
+//                           trailing: const Icon(Icons.arrow_forward_ios,
+//                               size: 14, color: Colors.grey),
+//                         );
+//                       }).toList(),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//             );
+//           }),
+//         ),
+//       ),
+//     ],
+//   );
+// }
+Widget aboutTabSelectedColumn(DoctorProfileModel doctor) {
   return Column(
     children: [
-      profileCard('Description', user.description),
+      profileCard('Description', doctor.user.description!),
       Row(
         children: [
-          profileCard('Session Duration:', '15 min'),
-          profileCard('Days in advance:    ', '21 Days '),
+          profileCard('Session Duration:', doctor.sessionDuration.toString()),
+          profileCard('Days in advance:    ', doctor.daysInAdvance.toString()),
         ],
       ),
       Card(
@@ -257,14 +335,17 @@ Widget aboutTabSelectedColumn(
         ),
         child: ExpansionTile(
           title: const Text(
-            'View Available Times',
+            'My Schedule :',
             style: TextStyle(
               color: ColorsHelper.primary,
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
           ),
-          children: testSchedules.map((schedule) {
+          children: doctor.schedule.workingHours.entries.map((entry) {
+            final day = entry.key;
+            final times = entry.value;
+
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: Card(
@@ -291,7 +372,7 @@ Widget aboutTabSelectedColumn(
                           ),
                           const SizedBox(width: 8),
                           Text(
-                            schedule.day,
+                            day,
                             style: const TextStyle(
                               color: ColorsHelper.primary,
                               fontSize: 16,
@@ -302,16 +383,21 @@ Widget aboutTabSelectedColumn(
                       ),
                     ),
                     Column(
-                      children: schedule.times.map<Widget>((time) {
+                      children: times.map<Widget>((time) {
                         return ListTile(
-                          leading: const Icon(Icons.access_time,
-                              color: ColorsHelper.primary),
+                          leading: const Icon(
+                            Icons.access_time,
+                            color: ColorsHelper.primary,
+                          ),
                           title: Text(
                             time,
                             style: const TextStyle(fontSize: 15),
                           ),
-                          trailing: const Icon(Icons.arrow_forward_ios,
-                              size: 14, color: Colors.grey),
+                          trailing: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 14,
+                            color: Colors.grey,
+                          ),
                         );
                       }).toList(),
                     ),
@@ -325,5 +411,6 @@ Widget aboutTabSelectedColumn(
     ],
   );
 }
+
 
 

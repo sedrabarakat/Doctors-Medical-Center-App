@@ -27,6 +27,7 @@ class DoctorModel {
         required this.sessionDuration,
         required this.userData,
         required this.userId});
+
   factory DoctorModel.fromJson(Map<String, dynamic> json) =>
       _$DoctorModelFromJson(json);
   Map<String, dynamic> toJson() => _$DoctorModelToJson(this);

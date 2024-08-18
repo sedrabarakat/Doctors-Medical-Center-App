@@ -10,6 +10,7 @@ class AppUrl {
   static const signUp = "${baseUrl}register/doctor";
 
   static const getDoctorInfo="${baseUrl}doctor/me";
+  static const getDoctorProfile = '${baseUrl}dashboard/doctor/';
 
   static const displayOnlineSchedule="${baseUrl}online_guidance_schedule/";
   static const displaySpecificSchedule="${baseUrl}online_guidance_schedule/";//{online_guidance}
