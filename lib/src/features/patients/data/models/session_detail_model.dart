@@ -1,6 +1,7 @@
 import 'package:doctor_app/core/data/models/doctor_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/file_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'file_model.dart';
 
 part 'session_detail_model.g.dart';
 

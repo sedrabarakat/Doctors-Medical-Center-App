@@ -1,4 +1,4 @@
-import 'package:doctor_app/src/features/patient_profile/presentation/widgets/patient_cell.dart';
+import 'package:doctor_app/src/features/patients/presentation/widgets/patient_cell.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

@@ -1,11 +1,11 @@
 import 'package:doctor_app/core/domain/services/locator.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/list_cubit.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/list_states.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../cubit/list_cubit.dart';
+import '../cubit/list_states.dart';
 import '../widgets/patient_cell.dart';
 import '../widgets/patients_listview.dart';
 

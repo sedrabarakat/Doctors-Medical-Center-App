@@ -5,12 +5,14 @@ import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/core/domain/services/api_services.dart';
 import 'package:doctor_app/core/domain/urls/app_url.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/file_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/service_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/session_detail_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/session_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import '../models/file_model.dart';
+import '../models/service_model.dart';
+import '../models/session_detail_model.dart';
+import '../models/session_model.dart';
 
 class PatientRemoteDataSource {
   final ApiServices _services;

@@ -7,10 +7,10 @@ import 'package:doctor_app/src/features/auth/presentation/pages/verification_cod
 import 'package:doctor_app/src/features/bottom_navigation_screen/bottom_navigation_screen.dart';
 import 'package:doctor_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:doctor_app/src/features/home/presentation/screen/home.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_profile_screen.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_sessions_screen.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/personal_information_screen.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/session_information_screen.dart';
+import 'package:doctor_app/src/features/patients/presentation/pages/patient_profile_screen.dart';
+import 'package:doctor_app/src/features/patients/presentation/pages/patient_sessions_screen.dart';
+import 'package:doctor_app/src/features/patients/presentation/pages/personal_information_screen.dart';
+import 'package:doctor_app/src/features/patients/presentation/pages/session_information_screen.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/add_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/doctor_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/specific_schedule.dart';

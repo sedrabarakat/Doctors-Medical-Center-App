@@ -1,7 +1,7 @@
 import 'package:doctor_app/core/widgets/custom_progress_state_button.dart';
 import 'package:doctor_app/core/widgets/custom_text_field.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/widgets/icon_button_with_title.dart';
+import 'package:doctor_app/src/features/patients/presentation/cubit/patient_cubit.dart';
+import 'package:doctor_app/src/features/patients/presentation/widgets/icon_button_with_title.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

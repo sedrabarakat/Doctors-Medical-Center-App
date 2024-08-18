@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_cubit.dart';
+import 'package:doctor_app/src/features/patients/presentation/cubit/upload_download_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../urls/app_url.dart';

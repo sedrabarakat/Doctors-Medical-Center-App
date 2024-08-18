@@ -4,12 +4,14 @@ import 'package:dartz/dartz.dart';
 import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
-import 'package:doctor_app/src/features/patient_profile/data/datasource/patient_remote_data_source.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/file_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/session_detail_model.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/session_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../data/datasource/patient_remote_data_source.dart';
+import '../../data/models/file_model.dart';
+import '../../data/models/session_detail_model.dart';
+import '../../data/models/session_model.dart';
 
 class PatientRepo {
   final PatientRemoteDataSource _remote;

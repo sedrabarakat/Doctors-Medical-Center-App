@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_state.dart';
+import 'package:doctor_app/src/features/patients/presentation/cubit/upload_download_state.dart';
 
 class UploadDownloadCubit extends Cubit<UploadDownloadState> {
   UploadDownloadCubit() : super(UploadDownloadInitialState());

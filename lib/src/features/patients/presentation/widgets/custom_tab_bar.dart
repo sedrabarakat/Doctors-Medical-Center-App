@@ -2,11 +2,11 @@ import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/helper/color_helper.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
+import 'package:doctor_app/src/features/patients/presentation/cubit/patient_cubit.dart';
 
-import 'package:doctor_app/src/features/patient_profile/presentation/widgets/empty_data_widget.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/widgets/list_of_files.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/widgets/no_files_widget.dart';
+import 'package:doctor_app/src/features/patients/presentation/widgets/empty_data_widget.dart';
+import 'package:doctor_app/src/features/patients/presentation/widgets/list_of_files.dart';
+import 'package:doctor_app/src/features/patients/presentation/widgets/no_files_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

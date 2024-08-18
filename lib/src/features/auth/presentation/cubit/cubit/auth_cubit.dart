@@ -6,7 +6,7 @@ import 'package:doctor_app/core/helper/image_helper.dart';
 import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/auth/data/model/working_hour_model.dart';
 import 'package:doctor_app/src/features/auth/domain/repos/auth_repo.dart';
-import 'package:doctor_app/src/features/patient_profile/data/models/service_model.dart';
+import 'package:doctor_app/src/features/patients/data/models/service_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';

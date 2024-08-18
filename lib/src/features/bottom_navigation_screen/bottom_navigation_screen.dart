@@ -15,7 +15,7 @@ import 'package:go_router/go_router.dart';
 import '../profile_doctor/presentation/pages/profile_doctor.dart';
 import '../home/presentation/screen/home.dart';
 import '../online_consultation/presentation/screen/doctor_schedule.dart';
-import '../patient_profile/presentation/pages/patients_list.dart';
+import '../patients/presentation/pages/patients_list.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});

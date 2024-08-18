@@ -12,17 +12,17 @@ import 'package:doctor_app/src/features/online_consultation/data/remote/event_se
 import 'package:doctor_app/src/features/online_consultation/data/repos/event_repo_imp.dart';
 import 'package:doctor_app/src/features/online_consultation/data/repos/schedule_repo_imp.dart';
 import 'package:doctor_app/src/features/online_consultation/domain/event_repo.dart';
-import 'package:doctor_app/src/features/patient_profile/data/datasource/patient_remote_data_source.dart';
-import 'package:doctor_app/src/features/patient_profile/domain/PatientsRepo.dart';
-import 'package:doctor_app/src/features/patient_profile/domain/repositories/patient_repo.dart';
+import 'package:doctor_app/src/features/patients/data/datasource/patient_remote_data_source.dart';
+import 'package:doctor_app/src/features/patients/domain/PatientsRepo.dart';
+import 'package:doctor_app/src/features/patients/domain/repositories/patient_repo.dart';
 import 'package:doctor_app/src/features/posts/data/datasources/posts_remote_data_source.dart';
 import 'package:doctor_app/src/features/posts/domain/posts_repo.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../src/features/online_consultation/data/remote/remote_schedule.dart';
 import '../../../src/features/online_consultation/domain/schedule_repo.dart';
-import '../../../src/features/patient_profile/data/remote/remote_patients.dart';
-import '../../../src/features/patient_profile/data/repo_impl/list_repo_impl.dart';
+import '../../../src/features/patients/data/remote/remote_patients.dart';
+import '../../../src/features/patients/data/repo_impl/list_repo_impl.dart';
 
 final getIt = GetIt.I;
 

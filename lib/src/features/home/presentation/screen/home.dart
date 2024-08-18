@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/style_manager.dart';
-import '../../../patient_profile/presentation/widgets/patients_listview.dart';
+import '../../../patients/presentation/widgets/patients_listview.dart';
 import '../widgets/appintment_widget.dart';
 import '../widgets/container_stack.dart';
 import '../widgets/recent_patient.dart';
