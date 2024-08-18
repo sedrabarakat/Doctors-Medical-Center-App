@@ -236,7 +236,7 @@ Widget aboutTabSelectedColumn(
     UserModel user, List<String> availableDaysAndTime) {
   return Column(
     children: [
-      profileCard('Description', user.description),
+      profileCard('Description', ''),
       Row(
         children: [
           profileCard('Session Duration:', '15 min'),
