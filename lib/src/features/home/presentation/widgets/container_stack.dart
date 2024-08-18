@@ -1,3 +1,5 @@
+import 'package:doctor_app/core/helper/color_helper.dart';
+import 'package:doctor_app/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,7 +7,10 @@ import '../../../../../core/utils/style_manager.dart';
 import '../../../../../core/widgets/text_from_field.dart';
 import '../../../online_consultation/presentation/widget/clip_path_container.dart';
 
-Widget welcomeDr() {
+Widget welcomeDr({
+  required context
+}) {
+  HomeCubit cubit=HomeCubit.get(context);
   return Stack(
     children: [
       ClipPathContainer(height: 230.h),
@@ -32,7 +37,7 @@ Widget welcomeDr() {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Welcome Back',style: StyleManager.fontBold60,),
-                Text('Dr.Adam',style: StyleManager.fontBold60,),
+                Text('${HomeCubit.doctorModel!.userData.fullName}',style: StyleManager.fontBold60,),
               ],
             )
           ),
@@ -43,6 +48,22 @@ Widget welcomeDr() {
         child: SizedBox(
             width: 400.w,
             child: TextField_def(
+              Is_SuffixWidget: true,
+              onTap: (){
+                cubit.SetList();
+              },
+              onChanged: (value){
+                cubit.search.text=value.toString();
+                cubit.getPatient(search: cubit.search.text);
+              },
+              controller: cubit.search,
+              SuffixWidget:IconButton(
+                onPressed: (){
+                  cubit.SetHome();
+                  FocusScope.of(context).unfocus();
+                  cubit.search.clear();
+                },icon: Icon(Icons.cancel,color: ColorsHelper.primary,),
+              ),
               hintText: 'Search for Patient',
              filled: true,fillColor: Colors.white24,
               borderStyle: OutlineInputBorder(
@@ -52,8 +73,8 @@ Widget welcomeDr() {
             )),
       ),
       Padding(
-        padding: EdgeInsets.only(top: 140.h,left: 210.w),
-        child: Image.asset('assets/images/med.png',height: 200.h,),
+        padding: EdgeInsets.only(top: 150.h,left: 230.w),
+        child: Image.asset('assets/images/med.png',height: 180.h,),
       )
 
     ],

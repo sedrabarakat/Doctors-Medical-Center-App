@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:progress_state_button/iconed_button.dart';
 
 import '../helper/color_helper.dart';
 import '../utils/style_manager.dart';
@@ -8,6 +9,9 @@ import '../utils/style_manager.dart';
 PreferredSizeWidget appBar_Leading({
   required String title,
   required VoidCallback backbutton,
+  bool thereAction=false,
+  String ?text,
+  VoidCallback ?actionbutton
 }){
   return AppBar(
     flexibleSpace: FlexibleSpaceBar(
@@ -26,6 +30,13 @@ PreferredSizeWidget appBar_Leading({
         color: ColorsHelper.white,
       ),
     ),
+    actions: [
+      (thereAction)? Padding(
+        padding: EdgeInsets.only(top: 20.h,left: 2.w),
+        child: TextButton(onPressed: actionbutton, child: Text(text!,
+        style: StyleManager.fontBold20white,)),
+      ):SizedBox()
+    ],
   );
 }
 
