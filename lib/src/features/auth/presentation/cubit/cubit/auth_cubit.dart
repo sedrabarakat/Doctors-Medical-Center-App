@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:progress_state_button/progress_button.dart';
-
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -36,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
     'Tuesday': <FromToController>[FromToController()],
     'Wednesday': <FromToController>[FromToController()],
     'Thursday': <FromToController>[FromToController()],
-    'Firday': <FromToController>[FromToController()],
+    'Friday': <FromToController>[FromToController()],
     'Saturday': <FromToController>[FromToController()],
   };
 
@@ -143,7 +142,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   void setUpWorkingHour() {
     workingHour = WorkingHourModel(
-        friday: getWorkingHourForDay(days['Firday']),
+        friday: getWorkingHourForDay(days['Friday']),
         monday: getWorkingHourForDay(days['Monday']),
         saturday: getWorkingHourForDay(days['Saturday']),
         sunday: getWorkingHourForDay(days['Sunday']),

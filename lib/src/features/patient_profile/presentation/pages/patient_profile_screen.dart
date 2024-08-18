@@ -6,12 +6,13 @@ import 'package:doctor_app/core/helper/string_helper.dart';
 import 'package:doctor_app/core/routing/app_router.dart';
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/custom_app_bar.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/detail_card.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/profile_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/detail_card.dart';
+import '../widgets/profile_button.dart';
 
 class PatientProfileScreen extends StatelessWidget {
   const PatientProfileScreen({super.key, required this.patient});

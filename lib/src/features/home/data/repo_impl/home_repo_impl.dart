@@ -3,7 +3,6 @@ import 'package:doctor_app/core/data/models/base_model.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';
 import 'package:doctor_app/core/data/models/doctor_model.dart';
 import 'package:doctor_app/src/features/home/data/data_sources/home_remote.dart';
-
 import '../../domain/repos/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {

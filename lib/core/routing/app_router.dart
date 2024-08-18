@@ -1,4 +1,5 @@
 import 'package:doctor_app/core/data/models/patient_model.dart';
+import 'package:doctor_app/core/helper/token_helper.dart';
 import 'package:doctor_app/src/features/auth/presentation/pages/login_screen.dart';
 import 'package:doctor_app/src/features/auth/presentation/pages/signup_screen.dart';
 import 'package:doctor_app/src/features/auth/presentation/pages/verification_code_screen.dart';
@@ -8,14 +9,17 @@ import 'package:doctor_app/src/features/patient_profile/presentation/pages/patie
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/patient_sessions_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/personal_information_screen.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/pages/session_information_screen.dart';
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/cubit.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/add_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/doctor_schedule.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/screen/specific_schedule.dart';
+import 'package:doctor_app/src/features/posts/presentation/cubits/posts_cubit.dart';
+import 'package:doctor_app/src/features/posts/presentation/pages/comment_screen.dart';
 import 'package:doctor_app/src/features/posts/presentation/pages/new_post_screen.dart';
 import 'package:doctor_app/src/features/splash/splash_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../helper/token_helper.dart';
+import '../../src/features/online_consultation/presentation/cubits/cubit/cubit.dart';
+import '../../src/features/online_consultation/presentation/screen/video_call.dart';
 
 class AppRouter {
   static const kLogin = '/login';
@@ -31,18 +35,19 @@ class AppRouter {
   static const kDoctorSchedule = '/doctor_schedule';
   static const kDoctorSpecificSchedule = '/specific_schedule';
   static const kAdd_schedule = '/add_schedule';
+  static const kVideoCall = '/video_call';
+
+  static const kComment = '/comment_screen';
 
   static final router = GoRouter(
     initialLocation: '/',
     routes: [
       GoRoute(
-          path: '/',
-          builder: (context, state) => SplashScreen(pushRoute: kLogin)
-
-          // TokenHelper.hasToken
-          //     ? SplashScreen(pushRoute: kBottomNavigationScreen)
-          //     : SplashScreen(pushRoute: kLogin),
-          ),
+        path: '/',
+        builder: (context, state) => TokenHelper.hasToken
+            ? const SplashScreen(pushRoute: kBottomNavigationScreen)
+            : const SplashScreen(pushRoute: kLogin),
+      ),
       GoRoute(
         path: kLogin,
         builder: (context, state) => const LoginScreen(),
@@ -57,7 +62,10 @@ class AppRouter {
       ),
       GoRoute(
         path: kBottomNavigationScreen,
-        builder: (context, state) => const BottomNavigationScreen(),
+        builder: (context, state) {
+          BlocProvider.of<ScheduleCubit>(context).getScheduleList(context);
+          return const BottomNavigationScreen();
+        },
       ),
       GoRoute(
         path: kPatientProfileScreen,
@@ -115,8 +123,23 @@ class AppRouter {
       ),
       GoRoute(
         path: kNewPost,
-        builder: (context, state) => const NewPostScreen(),
+        builder: (context, state) {
+          PostsCubit cubit = state.extra as PostsCubit;
+          return NewPostScreen(
+            cubit: cubit,
+          );
+        },
       ),
+      GoRoute(
+        path: kComment,
+        builder: (context, state) {
+          final cubit = state.extra as PostsCubit;
+          return CommentScreen(
+            cubit: cubit,
+          );
+        },
+      ),
+      GoRoute(path: kVideoCall, builder: (context, state) => const VideoCall())
     ],
   );
 }

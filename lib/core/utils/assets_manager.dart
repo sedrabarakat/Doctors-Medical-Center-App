@@ -6,6 +6,7 @@ class AssetsManager {
   static const clock = '${_imagePath}clock.svg';
   static const loginImage = '${_imagePath}login_image.svg';
   static const verificationCode = '${_imagePath}verification_code.svg';
+  static const errorSign = "${_imagePath}error_sign.svg";
 /*>>>>>>>>>> Png Images <<<<<<<<<<*/
   static const defUser = '${_imagePath}user.png';
 

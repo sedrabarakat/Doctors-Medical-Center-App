@@ -6,11 +6,12 @@ import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/core/widgets/toast_bar.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_cubit.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/custom_tab_bar.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/patient_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/custom_tab_bar.dart';
+import '../widgets/patient_card.dart';
 
 class SessionInformationScreen extends StatelessWidget {
   const SessionInformationScreen({super.key, required this.data});

@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../helper/color_helper.dart';
 import '../utils/style_manager.dart';
 
-PreferredSizeWidget appBarS({
+PreferredSizeWidget appBar_Leading({
   required String title,
-  required VoidCallback backbutton
-}){
+  required VoidCallback backbutton,
+}) {
   return AppBar(
     flexibleSpace: FlexibleSpaceBar(
       titlePadding: EdgeInsets.only(top: 10.h),
@@ -26,5 +26,34 @@ PreferredSizeWidget appBarS({
         color: ColorsHelper.white,
       ),
     ),
+  );
+}
+
+PreferredSizeWidget appBar({
+  required String title,
+  IconData? leadingIcon,
+  void Function()? onLeadingPressed,
+}) {
+  return AppBar(
+    flexibleSpace: FlexibleSpaceBar(
+      titlePadding: EdgeInsets.only(top: 10.h),
+      centerTitle: true,
+
+      title: Text(title, style: StyleManager.fontBold60),
+      background: Container(
+          color: ColorsHelper.primary), // Solid color, no transparency
+    ),
+    surfaceTintColor: ColorsHelper.primary,
+    backgroundColor: ColorsHelper.primary,
+    leading: leadingIcon != null
+        ? IconButton(
+            onPressed: onLeadingPressed,
+            icon: Icon(
+              leadingIcon,
+              color: Colors.white,
+              size: 28,
+            ),
+          )
+        : null,
   );
 }

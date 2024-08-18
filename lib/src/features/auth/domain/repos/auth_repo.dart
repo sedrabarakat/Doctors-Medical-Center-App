@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:dartz/dartz.dart';
 import 'package:doctor_app/core/data/models/user_model.dart';
 import 'package:doctor_app/core/domain/error_handler/network_exceptions.dart';

@@ -13,6 +13,7 @@ FileModel _$FileModelFromJson(Map<String, dynamic> json) => FileModel(
       createdDate: json['created_date'] as String,
       createdTimeStamp: (json['created_timestamp'] as num).toInt(),
       doctorId: (json['doctor_id'] as num?)?.toInt(),
+      downloaded: json['downloaded'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$FileModelToJson(FileModel instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$FileModelToJson(FileModel instance) => <String, dynamic>{
       'path': instance.path,
       'created_date': instance.createdDate,
       'created_timestamp': instance.createdTimeStamp,
+      'downloaded': instance.downloaded,
     };

@@ -5,12 +5,13 @@ import 'package:doctor_app/core/routing/app_router.dart';
 
 import 'package:doctor_app/core/utils/style_manager.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/empty_data_widget.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/session_card.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/widgets/empty_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:go_router/go_router.dart';
+
+import '../widgets/session_card.dart';
 
 class PatientSessionsScreen extends StatefulWidget {
   const PatientSessionsScreen({super.key, required this.data});

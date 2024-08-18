@@ -7,8 +7,9 @@ import 'package:doctor_app/src/features/patient_profile/data/models/file_model.d
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/patient_cubit.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_cubit.dart';
 import 'package:doctor_app/src/features/patient_profile/presentation/cubit/upload_download_state.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/file_card.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/session_details_doctor_card.dart';
+
+import 'package:doctor_app/src/features/patient_profile/presentation/widgets/file_card.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/widgets/session_details_doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

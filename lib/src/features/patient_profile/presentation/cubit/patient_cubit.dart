@@ -11,8 +11,9 @@ import 'package:doctor_app/src/features/patient_profile/data/models/service_mode
 import 'package:doctor_app/src/features/patient_profile/data/models/session_detail_model.dart';
 import 'package:doctor_app/src/features/patient_profile/data/models/session_model.dart';
 import 'package:doctor_app/src/features/patient_profile/domain/repositories/patient_repo.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/add_service_dialog.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/upload_file_bottom_sheet.dart';
+
+import 'package:doctor_app/src/features/patient_profile/presentation/widgets/add_service_dialog.dart';
+import 'package:doctor_app/src/features/patient_profile/presentation/widgets/upload_file_bottom_sheet.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

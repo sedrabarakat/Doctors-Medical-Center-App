@@ -68,4 +68,5 @@ class RemoteSchedule {
     );
     return BaseModel(message: Response['message'], data: null);
   }
+
 }

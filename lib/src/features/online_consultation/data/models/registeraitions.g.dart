@@ -20,6 +20,7 @@ RegisteraitionsModel _$RegisteraitionsModelFromJson(
       (json['call_length'] as num?)?.toInt(),
       json['channel_name'] as String?,
       json['call_time'],
+      PatientModel.fromJson(json['patient'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$RegisteraitionsModelToJson(
@@ -36,4 +37,5 @@ Map<String, dynamic> _$RegisteraitionsModelToJson(
       'total_cost': instance.total_cost,
       'created_at': instance.created_at,
       'updated_at': instance.updated_at,
+      'patient': instance.patient,
     };

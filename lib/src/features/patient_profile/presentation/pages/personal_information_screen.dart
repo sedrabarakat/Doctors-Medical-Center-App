@@ -1,10 +1,12 @@
 import 'package:doctor_app/core/data/models/patient_model.dart';
 import 'package:doctor_app/core/helper/dimension_helper.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/custom_app_bar.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/information_container.dart';
-import 'package:doctor_app/src/features/patient_profile/presentation/pages/widgets/personal_information_text_field.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/information_container.dart';
+import '../widgets/personal_information_text_field.dart';
 
 class PersonalInformationScreen extends StatelessWidget {
   const PersonalInformationScreen({super.key, required this.patient});

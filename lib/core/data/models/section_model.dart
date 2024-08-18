@@ -16,3 +16,4 @@ class SectionModel {
       _$SectionModelFromJson(json);
   Map<String, dynamic> toJson() => _$SectionModelToJson(this);
 }
+

@@ -1,5 +1,5 @@
+import 'package:doctor_app/core/data/models/section_model.dart';
 import 'package:doctor_app/core/data/models/user_model.dart';
-import 'package:doctor_app/src/features/auth/data/model/section_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'doctor_model.g.dart';

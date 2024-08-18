@@ -1,10 +1,9 @@
-import 'package:doctor_app/src/features/online_consultation/presentation/cubit/states.dart';
 import 'package:doctor_app/src/features/online_consultation/presentation/widget/clip_path_addschedule.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../cubit/cubit.dart';
+import '../cubits/cubit/cubit.dart';
+import '../cubits/cubit/states.dart';
 import '../widget/schedule_cell.dart';
 
 class DoctorSchedule extends StatelessWidget {
@@ -24,7 +23,7 @@ class DoctorSchedule extends StatelessWidget {
                 child: ListView.separated(
                     itemBuilder: (ctx, index) => scheduleCell(
                         context: context,
-                        Schedule_id: index,
+                        Schedule_id: cubit.myDates[index].id,
                         date: cubit.myDates[index].date,
                         fromTime: cubit.myDates[index].from_min,
                         toTime: cubit.myDates[index].to_min),
