@@ -27,7 +27,7 @@ class AppointmentScreen extends StatelessWidget {
             backgroundColor: Colors.white,
             appBar: appBar_Leading(
               backbutton: () {
-                context.go(AppRouter.kAppointment);
+                context.go(AppRouter.kBottomNavigationScreen);
               },
               title: 'Appointment',
               thereAction: true,
