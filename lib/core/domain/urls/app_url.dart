@@ -11,7 +11,6 @@ class AppUrl {
   static const signUp = "${baseUrl}register/doctor";
   ///**************************** Doctor ****************************/
   static const getDoctorInfo = "${baseUrl}doctor/me";
-  static const getDoctorInfo="${baseUrl}doctor/me";
   static const getDoctorProfile = '${baseUrl}dashboard/doctor/';
 
   ///**************************** Online Consulting ****************************/
